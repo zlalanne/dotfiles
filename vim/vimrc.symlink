@@ -1,0 +1,26 @@
+" Disable vi comaptibility
+set nocompatible
+filetype off
+
+" Initializing Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Letting Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" Repos on GitHub
+Bundle 'tpope/vim-sensible'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-surrond'
+
+" Tab Settings
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set number
+
+syntax on
+filetype indent plugin on
