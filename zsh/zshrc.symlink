@@ -61,6 +61,11 @@ then
     plugins+=tmux
 fi
 
+if hash python 2>/dev/null;
+then
+    plugins+=python
+fi
+
 echo $plugins
 
 source $ZSH/oh-my-zsh.sh
