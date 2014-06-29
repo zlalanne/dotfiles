@@ -50,8 +50,22 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git extract tmux)
 
+# Load certain plugins based on setup
+if hash dpkg 2>/dev/null;
+then
+    plugins+=debian
+fi
+
+if hash tmux 2>/dev/null;
+then
+    plugins+=tmux
+fi
+
+echo $plugins
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export EDITOR='vim'
+
