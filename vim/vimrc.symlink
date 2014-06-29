@@ -3,16 +3,16 @@ set nocompatible
 filetype off
 
 " Initializing Vundle
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 " Letting Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin  'gmarik/Vundle.vim'
 
 " Repos on GitHub
-Bundle 'tpope/vim-sensible'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-surrond'
+Plugin 'tpope/vim-sensible'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
 
 " Tab Settings
 set smartindent
