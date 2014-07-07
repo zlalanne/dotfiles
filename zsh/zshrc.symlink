@@ -66,8 +66,6 @@ then
     plugins+=python
 fi
 
-echo $plugins
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
