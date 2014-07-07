@@ -1,8 +1,8 @@
 [hub]
         protocol = https
 [user]
-        name = Zack Lalanne
-        email = zack.lalanne@gmail.com
+        name = AUTHORNAME 
+        email = AUTHOREMAIL 
 [color]
         diff = auto
         status = auto
