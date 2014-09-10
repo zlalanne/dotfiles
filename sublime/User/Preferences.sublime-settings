@@ -1,0 +1,17 @@
+{
+	"color_scheme": "Packages/User/Solarized (Dark) (SL).tmTheme",
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Consolas",
+	"font_size": 11,
+	"ignored_packages":
+	[
+	],
+	"rulers":
+	[
+		80,
+		100
+	],
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
