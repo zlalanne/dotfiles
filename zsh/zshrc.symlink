@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Path to dotfiles repository
+export DOTFILES=$HOME/.dotfiles
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -56,11 +59,6 @@ then
     plugins+=debian
 fi
 
-if hash tmux 2>/dev/null;
-then
-    plugins+=tmux
-fi
-
 if hash python 2>/dev/null;
 then
     plugins+=python
@@ -69,6 +67,6 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$DOTFILES/bin
 export EDITOR='vim'
 
