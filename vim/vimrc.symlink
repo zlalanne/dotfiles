@@ -10,9 +10,11 @@ call vundle#rc()
 Plugin  'gmarik/Vundle.vim'
 
 " Repos on GitHub
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
+Plugin 'bling/vim-airline'
 
 " Tab Settings
 set smartindent
@@ -22,5 +24,12 @@ set expandtab
 
 set number
 
-syntax on
+" Theme
+syntax enable
+set background=dark
+colorscheme solarized
+
+" vim-airline Settings
+let g:airline_theme='solarized'
+
 filetype indent plugin on
