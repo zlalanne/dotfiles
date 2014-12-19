@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Rename a git tag
+
+old=$1
+new=$2
+
+git tag ${new} ${old}
+git tag -d ${old}
+git push origin :refs/tags/${old}
+git push --tags
