@@ -42,18 +42,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git extract tmux)
-
-# Load certain plugins based on setup
-if hash dpkg 2>/dev/null;
-then
-    plugins+=debian
-fi
-
-if hash python 2>/dev/null;
-then
-    plugins+=python
-fi
+plugins=(colored-man colorize cp extract history last-working-dir rsync vi-mode git python tmux)
 
 source $ZSH/oh-my-zsh.sh
 
