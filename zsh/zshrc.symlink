@@ -12,11 +12,11 @@ do
     source $file
 done
 
+unset config_files
+
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$DOTFILES/bin
 export EDITOR='vim'
-
-unset config_files
 
 # Load local settings
 if [[ -a $HOME/.localrc ]]
