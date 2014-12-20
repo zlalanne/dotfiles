@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Switches KVM to next input
+
+numlockx off; sleep 1; numlockx on; sleep 1; numlockx off
