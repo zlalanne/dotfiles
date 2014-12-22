@@ -15,6 +15,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
 
 " Tab Settings
 set smartindent
@@ -25,11 +26,13 @@ set expandtab
 set number
 
 " Theme
+set t_Co=256
 syntax enable
 set background=dark
 colorscheme solarized
 
 " vim-airline Settings
 let g:airline_theme='solarized'
+let g:airline_powerline_fonts=1
 
 filetype indent plugin on
