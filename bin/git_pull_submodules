@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#
+# Pulls all submodules
+git submodule foreach git pull origin master
