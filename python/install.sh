@@ -3,5 +3,5 @@
 # Install python packages
 
 echo "Installing python virtualenv tools"
-pip install virtualenv
-pip install virtualenvwrapper
+sudo pip install virtualenv
+sudo pip install virtualenvwrapper
