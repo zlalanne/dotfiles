@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Uninstall all modules tracked by pip
+
+pip freeze | xargs pip uninstall -y
