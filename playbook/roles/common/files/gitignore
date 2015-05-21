@@ -1,9 +1,0 @@
-.DS_Store
-*~
-*.swp
-
-# Python
-*.pyc
-
-# IDEs
-.idea

@@ -1,6 +1,15 @@
 ---
 # Installing common things
 
+- name: Add PPAs
+  apt_repository:
+    repo={{item}}
+    state=present
+    update_cache=yes
+  with_items:
+    - ppa:git-core/ppa
+  sudo: yes
+
 - name: Install packages
   apt:
     name={{item}}
