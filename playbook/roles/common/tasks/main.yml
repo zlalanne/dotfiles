@@ -1,0 +1,42 @@
+---
+# Installing common things
+
+- name: Install packages
+  apt:
+    name={{item}}
+    state=latest
+  with_items:
+    - vim
+    - zsh
+    - tmux
+    - htop
+    - git
+  sudo: yes
+
+- name: Setup gitconfig
+  template:
+    src=gitconfig
+    dest=~/.gitconfig
+
+- name: Setup global gitignore
+  copy:
+    src=gitignore
+    dest=~/.gitignore 
+
+- name: Setup tmux config
+  copy:
+    src=tmux.conf
+    dest=~/.tmux.conf 
+
+- name: Installing vundle
+  git:
+    repo=https://github.com/gmarik/Vundle.vim.git
+    dest=~/.vim/bundle/Vundle.vim
+
+- name: Install vimrc
+  copy:
+    src=vimrc
+    dest=~/.vimrc
+
+- name: Install vim plugins
+  command: vim +PluginInstall +qall

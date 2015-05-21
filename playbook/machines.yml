@@ -1,0 +1,22 @@
+---
+# This playbook setups up machines for their purposes
+
+- name: Apply standard common configuration
+  hosts: all
+  roles:
+    - common
+
+- name: Install web development related tools
+  hosts: webdev
+  roles:
+   - webdev
+
+- name: Install personal computing applications
+  hosts: personal
+  roles:
+   - personal
+
+- name: Install python development related tools
+  hosts: pydev
+  roles:
+    - pydev

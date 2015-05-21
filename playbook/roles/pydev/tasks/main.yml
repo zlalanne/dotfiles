@@ -1,0 +1,32 @@
+---
+# Install python development tools
+
+- name: Install python related packages
+  apt:
+    name={{item}}
+    state=latest
+  with_items:
+    - python-pip
+    - python3-pip
+    - python-dev
+    - python3-dev
+  sudo: yes
+
+- name: Install some python2 modules globally
+  pip:
+    name={{item}}
+    state=latest
+  with_items:
+    - virtualenv
+    - bpython
+  sudo: yes
+
+- name: Install some python3 modules globally
+  pip:
+    name={{item}}
+    state=latest
+    executable=pip3
+  with_items:
+    - virtualenv
+    - bpython
+  sudo: yes

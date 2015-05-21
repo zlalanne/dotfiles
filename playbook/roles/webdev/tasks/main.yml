@@ -1,0 +1,20 @@
+---
+# Install webdev related packages
+
+- name: Install webdev related items
+  apt:
+    name={{item}}
+    state=latest
+  with_items:
+    - vagrant
+    - nodejs
+    - npm
+    - firefox
+  sudo: yes
+
+- name: Install bower
+  npm:
+    name=bower
+    global=yes
+  sudo: yes
+

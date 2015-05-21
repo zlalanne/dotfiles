@@ -1,0 +1,31 @@
+" Disable vi comaptibility
+set nocompatible
+filetype off
+
+" Initializing Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#rc()
+
+" Letting Vundle manage Vundle
+Plugin  'gmarik/Vundle.vim'
+
+" Repos on GitHub
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-fugitive'
+
+" Tab Settings
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set number
+
+" Theme
+set t_Co=256
+syntax enable
+set background=dark
+silent! colorscheme solarized
+
+filetype indent plugin on

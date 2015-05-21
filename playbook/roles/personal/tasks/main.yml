@@ -1,0 +1,10 @@
+---
+# Install and configure personal items
+
+- name: Install personal packages
+  apt:
+    name={{item}}
+    state=latest
+  with_items:
+    - deluge
+  sudo: yes
