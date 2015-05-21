@@ -6,19 +6,32 @@
     name={{item}}
     state=latest
   with_items:
-    - python-pip
-    - python3-pip
     - python-dev
     - python3-dev
+    - python-setuptools
+    - python3-setuptools
+  sudo: yes
+
+- name: Install pip
+  easy_install:
+    name=pip
+  sudo: yes
+
+- name: Install pip3
+  easy_install:
+    name=pip
+    executable=easy_install3
   sudo: yes
 
 - name: Install some python2 modules globally
   pip:
     name={{item}}
     state=latest
+    executable=pip2
   with_items:
     - virtualenv
     - bpython
+    - virtualenvwrapper
   sudo: yes
 
 - name: Install some python3 modules globally
