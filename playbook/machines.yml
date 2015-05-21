@@ -20,3 +20,8 @@
   hosts: pydev
   roles:
     - pydev
+
+- name: Install elementary os tools
+  hosts: elementaryos
+  roles:
+    - elementary
