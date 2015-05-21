@@ -29,7 +29,7 @@ set number
 set t_Co=256
 syntax enable
 set background=dark
-colorscheme solarized
+silent! colorscheme solarized
 
 " vim-airline Settings
 let g:airline_theme='solarized'

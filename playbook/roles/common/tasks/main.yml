@@ -13,30 +13,21 @@
     - git
   sudo: yes
 
-- name: Setup gitconfig
-  template:
-    src=gitconfig
-    dest=~/.gitconfig
-
-- name: Setup global gitignore
-  copy:
-    src=gitignore
-    dest=~/.gitignore 
-
-- name: Setup tmux config
-  copy:
-    src=tmux.conf
-    dest=~/.tmux.conf 
-
 - name: Installing vundle
   git:
     repo=https://github.com/gmarik/Vundle.vim.git
     dest=~/.vim/bundle/Vundle.vim
 
-- name: Install vimrc
-  copy:
-    src=vimrc
-    dest=~/.vimrc
-
 - name: Install vim plugins
   command: vim +PluginInstall +qall
+
+- name: Install oh-my-zsh
+  git:
+    repo=https://github.com/robbyrussell/oh-my-zsh.git
+    dest=~/.oh-my-zsh
+
+- name: Change default shell to zsh
+  user:
+    name={{username}}
+    shell=/usr/bin/zsh
+  sudo: yes
