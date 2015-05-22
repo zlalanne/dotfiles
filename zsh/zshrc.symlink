@@ -1,6 +1,12 @@
 # Path to dotfiles repository
 export DOTFILES=$HOME/.dotfiles
 
+# Load local settings
+if [[ -a $HOME/.localrc ]]
+then
+    source $HOME/.localrc
+fi
+
 # Load oh-my-zsh
 source $DOTFILES/zsh/oh-my-zsh.zsh
 
@@ -18,8 +24,3 @@ unset config_files
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$DOTFILES/bin
 export EDITOR='vim'
 
-# Load local settings
-if [[ -a $HOME/.localrc ]]
-then
-    source $HOME/.localrc
-fi
