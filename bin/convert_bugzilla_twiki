@@ -1,22 +1,24 @@
 #!/usr/bin/env python
+#
+# Convert a table from a bugzilla report to a format nicer for twiki
 
 import sys
 
 
 def main():
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print("Error: Incorrect Usage")
-        print("Usage: python convert_bugzilla_twiki.py /path/to/bugzilla/file")
+        print("Usage: ./convert_bugzilla_twiki /path/to/bugzilla/file bugzilla.server.com")
         sys.exit(1)
 
-    _, bugzilla = sys.argv
+    _, bugzilla, bugzilla_server = sys.argv
 
     new_text = []
 
     with open(bugzilla, 'r') as bug_table:
         for line in bug_table.readlines():
             cols = line.strip().split('\t')
-            cols[0] = "[[https://bugzilla.dal.design.ti.com/show_bug.cgi?id={0}][{0}]]".format(cols[0])
+            cols[0] = "[[https://{0}/show_bug.cgi?id={1}][{1}]]".format(bugzilla_server, cols[0])
             new_text.append("| {} | ".format(" | ".join(cols)))
 
     with open(bugzilla + ".twiki", 'w') as twiki_table:
