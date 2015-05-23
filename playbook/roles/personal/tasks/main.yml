@@ -7,4 +7,5 @@
     state=latest
   with_items:
     - deluge
+    - vlc
   sudo: yes
