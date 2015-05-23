@@ -22,7 +22,7 @@
     - pydev
 
 - name: Install general development tools
-  hosts: elementaryos
+  hosts: dev
   roles:
     - dev
 
