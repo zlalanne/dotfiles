@@ -13,3 +13,16 @@
     name=atom
     state=latest
   sudo: yes
+
+- name: Add Sublime Text PPA
+  apt_repository:
+    repo='ppa:webupd8team/sublime-text-3'
+    state=present
+    update_cache=yes
+  sudo: yes
+
+- name: Install Sublime Text
+  apt:
+    name=sublime-text-installer
+    state=latest
+  sudo: yes
