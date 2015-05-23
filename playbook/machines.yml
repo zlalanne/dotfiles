@@ -21,6 +21,11 @@
   roles:
     - pydev
 
+- name: Install general development tools
+  hosts: elementaryos
+  roles:
+    - dev
+
 - name: Install elementary os tools
   hosts: elementaryos
   roles:

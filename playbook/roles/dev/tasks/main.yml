@@ -1,0 +1,15 @@
+---
+# Tasks related to software development
+
+- name: Add Atom PPA
+  apt_repository:
+    repo='ppa:webupd8team/atom'
+    state=present
+    update_cache=yes
+  sudo: yes
+
+- name: Install atom editor
+  apt:
+    name=atom
+    state=latest
+  sudo: yes
