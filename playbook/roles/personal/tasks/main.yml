@@ -9,3 +9,6 @@
     - deluge
     - vlc
   sudo: yes
+
+# Install Google Chrome
+- include: chrome.yml

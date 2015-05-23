@@ -1,0 +1,26 @@
+---
+- name: Install Chromium browser
+  apt:
+    name=chromium-browser
+    state=latest
+  sudo: yes
+
+- name: Add Google repo key
+  apt_key:
+    url=https://dl-ssl.google.com/linux/linux_signing_key.pub
+    state=present
+  sudo: yes
+
+- name: Install Chrome stable - add to google.list
+  lineinfile:
+    dest=/etc/apt/sources.list.d/google.list
+    line="deb http://dl.google.com/linux/chrome/deb/ stable main"
+    create=yes
+  sudo: yes
+
+- name: Install Chrome stable
+  apt:
+    name=google-chrome-stable
+    state=latest
+    update_cache=yes
+  sudo: yes
