@@ -25,6 +25,9 @@ set expandtab
 
 set number
 
+" Remove trailing spaces
+autocmd BufWritePre *.py :%s/\s\+$//e
+
 " Theme
 set t_Co=256
 syntax enable
