@@ -12,9 +12,14 @@
     - firefox
   sudo: yes
 
-- name: Install bower
+- name: Install global NPM modules
   npm:
-    name=bower
+    name={{item}}
     global=yes
+  with_items:
+    - bower
+    - typescript
+    - grunt
+    - gulp
   sudo: yes
 
