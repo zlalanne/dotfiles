@@ -8,6 +8,7 @@
   with_items:
     - deluge
     - vlc
+    - libreoffice
   sudo: yes
 
 # Install Google Chrome
