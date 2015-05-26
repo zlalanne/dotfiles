@@ -1,28 +1,24 @@
 ---
 # Tasks related to software development
 
-- name: Add Atom PPA
+- name: Add PPAs
   apt_repository:
-    repo='ppa:webupd8team/atom'
+    repo={{item}}
     state=present
     update_cache=yes
+  with_items:
+    - 'ppa:webupd8team/atom'
+    - 'ppa:webupd8team/sublime-text-3'
+    - 'ppa:neovim-ppa/unstable'
   sudo: yes
 
-- name: Install atom editor
+- name: Install appllications
   apt:
-    name=atom
+    name={{item}}
     state=latest
+  with_items:
+   - atom
+   - sublime-text-installer
+   - neovim
   sudo: yes
 
-- name: Add Sublime Text PPA
-  apt_repository:
-    repo='ppa:webupd8team/sublime-text-3'
-    state=present
-    update_cache=yes
-  sudo: yes
-
-- name: Install Sublime Text
-  apt:
-    name=sublime-text-installer
-    state=latest
-  sudo: yes
