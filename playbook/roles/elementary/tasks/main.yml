@@ -16,3 +16,5 @@
   with_items:
     - elementary-tweaks
 
+- name: Setup terminal colors
+  script: terminal_color_scheme.py dark

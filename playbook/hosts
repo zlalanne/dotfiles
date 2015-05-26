@@ -1,3 +1,5 @@
+localhost ansible_connection=local
+
 [webdev]
 localhost
 
