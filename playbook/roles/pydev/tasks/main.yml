@@ -45,35 +45,6 @@
     - bpython
   sudo: yes
 
-- name: Determine if java is installed. Only install java if it hasn't been installed yet
-  command: dpkg-query -l java
-  register: java_check
-  ignore_errors: yes
-
-- name: Add Java PPA
-  apt_repository:
-    repo='ppa:webupd8team/java'
-    state=present
-    update_cache=yes
-  sudo: yes
-  when: java_check.stderr.find('no packages found')
-
-- name: Approve Oracle licesne
-  debconf:
-    name=oracle-java8-installer
-    question=shared/accepted-oracle-license-v1-1
-    value=true
-    vtype=select
-  sudo: yes
-  when: java_check.stderr.find('no packages found')
-
-- name: Install Java
-  apt:
-    name=oracle-java8-installer
-    state=latest
-  sudo: yes
-  when: java_check.stderr.find('no packages found')
-
 - name: Check if PyCharm installed
   stat: path=/opt/jetbrains/pycharm-{{pycharm_version}}/bin/pycharm.sh
   register: pycharm_check
@@ -98,4 +69,3 @@
     copy=no
   sudo: yes
   when: not pycharm_check.stat.exists
-
