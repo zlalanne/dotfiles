@@ -1,0 +1,57 @@
+---
+# Install packages related to Java development
+
+- name: Add Java Dev PPAs
+  apt_repository:
+    repo={{item}}
+    state=present
+  sudo: yes
+  with_items:
+    - ppa:webupd8team/java
+
+- name: Approve Oracle licesne
+  debconf:
+    name=oracle-java8-installer
+    question=shared/accepted-oracle-license-v1-1
+    value=true
+    vtype=select
+  sudo: yes
+
+- name: Install Java Dev Packages
+  apt:
+    name={{item}}
+    state=latest
+  sudo: yes
+  with_items:
+    - oracle-java8-installer
+
+- name: Check if Eclipse is installed
+  stat: path=/opt/eclipse/eclipse-java-{{eclipse_version}}/eclipse
+  register: eclipse_check
+
+- name: Craete Eclipse installation directory
+  file:
+    path=/opt/eclipse
+    state=directory
+  sudo: yes
+  when: not eclipse_check.stat.exists
+
+- name: Download Eclipse installer
+  get_url:
+    url="{{eclipse_download_url}}"
+    dest=/tmp
+  when: not eclipse_check.stat.exists
+
+- name: Extract Eclipse tar.gz
+  unarchive:
+    src=/tmp/eclipse-java-{{eclipse_version}}-linux-gtk-x86_64.tar.gz
+    dest=/opt/eclipse
+    copy=no
+  sudo: yes
+  when: not eclipse_check.stat.exists
+
+- name: Move eclipse folder
+  command: mv /opt/eclipse/eclipse /opt/eclipse/eclipse-java-{{eclipse_version}}
+  sudo: yes
+  when: not eclipse_check.stat.exists
+

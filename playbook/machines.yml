@@ -21,6 +21,11 @@
   roles:
     - pydev
 
+- name: Install java development related tools
+  hosts: javadev
+  roles:
+    - javadev
+
 - name: Install general development tools
   hosts: dev
   roles:

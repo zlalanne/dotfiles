@@ -1,0 +1,8 @@
+---
+# Variables for Java Dev
+
+eclipse_version_name: "luna"
+eclipse_release_name: "SR2"
+eclipse_version: "{{eclipse_version_name}}-{{eclipse_release_name}}"
+
+eclipse_download_url: "http://mirror.cc.vt.edu/pub/eclipse/technology/epp/downloads/release/{{eclipse_version_name}}/{{eclipse_release_name}}/eclipse-java-{{eclipse_version}}-linux-gtk-x86_64.tar.gz"
