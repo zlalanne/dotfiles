@@ -55,3 +55,12 @@
   sudo: yes
   when: not eclipse_check.stat.exists
 
+- name: Create eclipse .desktop file
+  template:
+    src=eclipse.desktop.j2
+    dest=/usr/share/applications/eclipse.desktop
+    owner=root
+    group=root
+    mode=0644
+  sudo: yes
+
