@@ -1,6 +1,15 @@
 ---
 # Install and configure personal items
 
+- name: Add some personal package PPAs
+  apt_repository:
+    repo={{item}}
+    state=present
+    update_cache=yes
+  with_items:
+    - 'ppa:inkscape.dev/stable'
+  sudo: yes
+
 - name: Install personal packages
   apt:
     name={{item}}
@@ -9,6 +18,8 @@
     - deluge
     - vlc
     - libreoffice
+    - inkscape
+    - gimp
   sudo: yes
 
 # Install Google Chrome
