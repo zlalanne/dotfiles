@@ -15,5 +15,8 @@ localhost
 [dev]
 localhost
 
+[embedded]
+localhost
+
 [elementaryos]
 localhost

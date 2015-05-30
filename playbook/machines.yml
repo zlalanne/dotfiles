@@ -31,6 +31,11 @@
   roles:
     - dev
 
+- name: Install embedded development tools
+  hosts: embedded
+  roles:
+    - embedded
+
 - name: Install elementary os tools
   hosts: elementaryos
   roles:

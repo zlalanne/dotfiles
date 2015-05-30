@@ -1,0 +1,8 @@
+---
+# Handlers for Embedded Development
+
+- name: Restart udev
+  service:
+    name=udev
+    state=restarted
+  sudo: yes
