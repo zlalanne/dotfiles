@@ -15,6 +15,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'bitc/vim-bad-whitespace'
 
 " Tab Settings
