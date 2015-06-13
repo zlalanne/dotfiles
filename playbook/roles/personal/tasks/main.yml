@@ -25,3 +25,6 @@
 
 # Install Google Chrome
 - include: chrome.yml
+
+# Install Spotify
+- include: spotify.yml
