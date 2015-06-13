@@ -10,6 +10,7 @@
     - nodejs
     - npm
     - firefox
+    - sqlite3
   sudo: yes
 
 - name: Install global NPM modules
