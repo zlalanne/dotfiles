@@ -40,3 +40,8 @@
   hosts: elementaryos
   roles:
     - elementary
+
+- name: Install stuff for school
+  hosts: school
+  roles:
+    - school
