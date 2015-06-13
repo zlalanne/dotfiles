@@ -10,6 +10,7 @@
     - python3-dev
     - python-setuptools
     - python3-setuptools
+    - libffi-dev # To build bpython dependencies
   sudo: yes
 
 - name: Install pip
@@ -33,6 +34,7 @@
     - bpython
     - virtualenvwrapper
     - pep8
+    - tox
   sudo: yes
 
 - name: Install some python3 modules globally
