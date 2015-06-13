@@ -8,6 +8,7 @@
     update_cache=yes
   with_items:
     - 'ppa:inkscape.dev/stable'
+    - 'ppa:gwendal-lebihan-dev/hexchat-stable'
   sudo: yes
 
 - name: Install personal packages
@@ -21,6 +22,9 @@
     - inkscape
     - gimp
     - xtightvncviewer
+    - hexchat
+    - gparted
+    - unetbootin
   sudo: yes
 
 # Install Google Chrome
