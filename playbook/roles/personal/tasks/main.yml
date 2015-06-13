@@ -20,6 +20,7 @@
     - libreoffice
     - inkscape
     - gimp
+    - xtightvncviewer
   sudo: yes
 
 # Install Google Chrome
