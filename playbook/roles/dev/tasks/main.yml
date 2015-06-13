@@ -20,5 +20,6 @@
    - atom
    - sublime-text-installer
    - neovim
+   - tig
   sudo: yes
 
