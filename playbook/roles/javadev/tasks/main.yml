@@ -63,4 +63,5 @@
     group=root
     mode=0644
   sudo: yes
+  when: not eclipse_check.stat.exists
 
