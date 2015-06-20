@@ -9,3 +9,5 @@
     - texlive-full
     - texmaker
   sudo: yes
+
+- include: network_connect.yml
