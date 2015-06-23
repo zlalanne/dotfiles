@@ -1,7 +1,0 @@
----
-# Variables for Embedded Development
-
-eagle_version: 7.3
-eagle_version_full: 7.3.0
-
-eagle_url: 'http://web.cadsoft.de/ftp/eagle/program/{{eagle_version}}/eagle-lin64-{{eagle_version_full}}.run'
