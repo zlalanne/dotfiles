@@ -53,3 +53,5 @@
   sudo: yes
   notify:
   - Restart udev
+
+- include: eagle.yml

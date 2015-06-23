@@ -1,9 +1,6 @@
 ---
 # Variables for Embedded Development
 
-energia_version: 0101E0015
-energia_download_url: "http://energia.nu/downloads/downloadv3.php?file=energia-{{energia_version}}-linux64.tgz"
-
 eagle_version: 7.3
 eagle_version_full: 7.3.0
 
