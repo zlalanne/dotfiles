@@ -20,12 +20,28 @@
     - tmux
     - htop
     - git
+    - cmake
+    - build-essential
   sudo: yes
 
 - name: Installing vundle
   git:
     repo=https://github.com/gmarik/Vundle.vim.git
     dest=~/.vim/bundle/Vundle.vim
+
+- name: Installing YouCompleteMe
+  git:
+    repo=https://github.com/Valloric/YouCompleteMe.git
+    dest=~/.vim/bundle/YouCompleteMe
+    update=yes
+  register: ycm_git
+
+- name: Compile YouCompleteMe
+  command: ./install.sh --clang-completer
+  args:
+    chdir: /home/{{username}}/.vim/bundle/YouCompleteMe
+    creates: /home/{{username}}/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so
+  when: ycm_git.changed
 
 - name: Install vim plugins
   command: vim +PluginInstall +qall

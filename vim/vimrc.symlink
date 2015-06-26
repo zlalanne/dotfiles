@@ -11,6 +11,7 @@ Plugin  'gmarik/Vundle.vim'
 
 " Repos on GitHub
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
@@ -24,16 +25,19 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set number
-
-" Remove trailing spaces
-autocmd BufWritePre *.py :%s/\s\+$//e
-
 " Theme
 set t_Co=256
 syntax enable
 set background=dark
 silent! colorscheme solarized
 let g:solarized_termcolors=256
+
+" Highlight current line
+set cursorline
+" Put line numbers
+set number
+
+" Remove trailing spaces
+autocmd BufWritePre *.py :%s/\s\+$//e
 
 filetype indent plugin on
