@@ -1,0 +1,21 @@
+---
+# Install Latest Vagrant
+
+- name: Add unofficial Vagrant Repository
+  apt_repository:
+    repo='deb http://vagrant-deb.linestarve.com/ any main'
+  sudo: yes
+
+- name: Accept Vagrant key
+  apt_key:
+    keyserver='pgp.mit.edu'
+    id=2099F7A4
+  sudo: yes
+
+- name: Install latest Vagrant
+  apt:
+    name=vagrant
+    state=latest
+    update_cache=yes
+  sudo: yes
+

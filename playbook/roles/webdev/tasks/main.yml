@@ -27,3 +27,6 @@
 
 # Install Virtualbox
 - include: virtualbox.yml
+
+# Install Vagrant
+- include: vagrant.yml
