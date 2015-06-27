@@ -21,5 +21,6 @@
    - sublime-text-installer
    - neovim
    - tig
+   - pandoc
   sudo: yes
 
