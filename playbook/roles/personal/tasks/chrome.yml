@@ -1,8 +1,12 @@
 ---
 - name: Install Chromium browser
   apt:
-    name=chromium-browser
+    name={{item}}
     state=latest
+  with_items:
+    - chromium-browser
+    - chromium-browser-l10n
+    - chromium-codecs-ffmpeg-extra
   sudo: yes
 
 - name: Add Google repo key
