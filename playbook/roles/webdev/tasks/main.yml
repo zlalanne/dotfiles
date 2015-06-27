@@ -6,7 +6,6 @@
     name={{item}}
     state=latest
   with_items:
-    - vagrant
     - nodejs
     - npm
     - firefox
