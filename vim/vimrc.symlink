@@ -11,11 +11,13 @@ Plugin  'gmarik/Vundle.vim'
 
 " Repos on GitHub
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'bitc/vim-bad-whitespace'
 
@@ -31,6 +33,7 @@ syntax enable
 set background=dark
 silent! colorscheme solarized
 let g:solarized_termcolors=256
+set colorcolumn=80
 
 " Highlight current line
 set cursorline
@@ -39,5 +42,8 @@ set number
 
 " Remove trailing spaces
 autocmd BufWritePre *.py :%s/\s\+$//e
+
+" Disable markdown folding
+let g:vim_markdown_folding_disabled=1
 
 filetype indent plugin on
