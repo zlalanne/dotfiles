@@ -40,7 +40,6 @@
   command: ./install.sh --clang-completer
   args:
     chdir: /home/{{username}}/.vim/bundle/YouCompleteMe
-    creates: /home/{{username}}/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so
   when: ycm_git.changed
 
 - name: Install vim plugins
