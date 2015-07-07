@@ -1,0 +1,5 @@
+---
+# Include different hardware playbooks
+
+- include: logitech_c920.yml
+  when: install_logitech_c920

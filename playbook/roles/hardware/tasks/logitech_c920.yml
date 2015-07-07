@@ -1,0 +1,18 @@
+---
+# Install support for Logitech C920 Webcam
+
+- name: Add PPAs needed for logitec webcam
+  apt_repository:
+    repo={{item}}
+  with_items:
+    - 'ppa:pj-assis/testing'
+  sudo: yes
+
+- name: Install needed packages
+  apt:
+    name={{item}}
+    state=latest
+  with_items:
+    - guvcview
+    - cheese
+  sudo: yes

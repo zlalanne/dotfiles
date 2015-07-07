@@ -1,47 +1,16 @@
 ---
 # This playbook setups up machines for their purposes
 
-- name: Apply standard common configuration
+- name: Install all neeeded roles
   hosts: all
   roles:
     - common
-
-- name: Install web development related tools
-  hosts: webdev
-  roles:
-   - webdev
-
-- name: Install personal computing applications
-  hosts: personal
-  roles:
-   - personal
-
-- name: Install python development related tools
-  hosts: pydev
-  roles:
+    - webdev
+    - personal
     - pydev
-
-- name: Install java development related tools
-  hosts: javadev
-  roles:
     - javadev
-
-- name: Install general development tools
-  hosts: dev
-  roles:
     - dev
-
-- name: Install embedded development tools
-  hosts: embedded
-  roles:
     - embedded
-
-- name: Install elementary os tools
-  hosts: elementaryos
-  roles:
     - elementary
-
-- name: Install stuff for school
-  hosts: school
-  roles:
     - school
+    - hardware
