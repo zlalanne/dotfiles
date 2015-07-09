@@ -11,7 +11,7 @@ Plugin  'gmarik/Vundle.vim'
 
 " Repos on GitHub
 Plugin 'altercation/vim-colors-solarized'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
