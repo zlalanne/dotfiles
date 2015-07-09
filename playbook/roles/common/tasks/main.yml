@@ -20,6 +20,7 @@
     - tmux
     - htop
     - git
+    - unrar
     - cmake
     - build-essential
   sudo: yes
