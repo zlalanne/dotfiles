@@ -22,5 +22,7 @@
    - neovim
    - tig
    - pandoc
+   - lftp
+   - filezilla
   sudo: yes
 
