@@ -32,3 +32,6 @@
 
 # Install Spotify
 - include: spotify.yml
+
+# Include numix theme
+- include: numix.yml
