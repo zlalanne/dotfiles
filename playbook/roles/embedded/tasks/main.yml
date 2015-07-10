@@ -43,7 +43,7 @@
   sudo: yes
   when: not energia_check.stat.exists
 
-- name: Install latest udev rules
+- name: Install latest udev rules for ARM
   get_url:
     url=http://energia.nu/files/71-ti-permissions.rules
     dest=/etc/udev/rules.d/71-ti-permissions.rules
@@ -53,5 +53,35 @@
   sudo: yes
   notify:
   - Restart udev
+
+- name: Install udev rules for MSP-EXP430G2 and MSP-EXP430FR5739
+  lineinfile:
+    dest=/etc/udev/rules.d/99-ti-launchpad.rules
+    create=yes
+    line='ATTRS{idVendor}=="0451", ATTRS{idProduct}=="f432", MODE="0660", GROUP="dialout"'
+    owner=root
+    group=root
+    mode=0644
+  sudo: yes
+  notify:
+  - Restart udev
+
+- name: Install udev rules for MSP-EXP430F5529LP and MSP-EXP430FR5969
+  lineinfile:
+    dest=/etc/udev/rules.d/99-ti-launchpad.rules
+    create=yes
+    line='ATTRS{idVendor}=="lcbe", ATTRS{idProduct}=="00fd", MODE="0660", GROUP="dialout"'
+    owner=root
+    group=root
+    mode=0644
+  sudo: yes
+  notify:
+  - Restart udev
+
+- name: Add user to dialout group
+  user:
+    name={{username}}
+    groups=dialout
+  sudo: yes
 
 - include: eagle.yml
