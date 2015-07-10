@@ -1,0 +1,87 @@
+---
+# Tasks for installing Energia
+
+- name: Check if Energia is installed
+  stat: path=/opt/energia/energia-{{energia_version}}/energia
+  register: energia_check
+
+- name: Create Energia installation directory
+  file:
+    path=/opt/energia
+    state=directory
+  sudo: yes
+  when: not energia_check.stat.exists
+
+- name: Download Energia installer
+  get_url:
+    url="{{energia_download_url}}"
+    dest=/tmp
+  when: not energia_check.stat.exists
+
+- name: Extract Energia tar.gz
+  unarchive:
+    src=/tmp/energia-{{energia_version}}-linux64.tgz
+    dest=/opt/energia
+    copy=no
+  sudo: yes
+  when: not energia_check.stat.exists
+
+- name: Create energia logo
+  copy:
+    src=energia_icon.png
+    dest=/opt/energia/energia-{{energia_version}}/energia_icon.png
+  sudo: yes
+  when: not energia_check.stat.exists
+
+- name: Create Energia .desktop file
+  template:
+    src=energia.desktop.j2
+    dest=/usr/share/applications/energia.desktop
+    owner=root
+    group=root
+    mode=0644
+  sudo: yes
+  when: not energia_check.stat.exists
+
+- name: Install latest udev rules for ARM
+  get_url:
+    url=http://energia.nu/files/71-ti-permissions.rules
+    dest=/etc/udev/rules.d/71-ti-permissions.rules
+    owner=root
+    group=root
+    mode=0644
+  sudo: yes
+  notify:
+  - Restart udev
+
+- name: Install udev rules for MSP-EXP430G2 and MSP-EXP430FR5739
+  lineinfile:
+    dest=/etc/udev/rules.d/99-ti-launchpad.rules
+    create=yes
+    line='ATTRS{idVendor}=="0451", ATTRS{idProduct}=="f432", MODE="0660", GROUP="dialout"'
+    owner=root
+    group=root
+    mode=0644
+  sudo: yes
+  notify:
+  - Restart udev
+
+- name: Install udev rules for MSP-EXP430F5529LP and MSP-EXP430FR5969
+  lineinfile:
+    dest=/etc/udev/rules.d/99-ti-launchpad.rules
+    create=yes
+    line='ATTRS{idVendor}=="lcbe", ATTRS{idProduct}=="00fd", MODE="0660", GROUP="dialout"'
+    owner=root
+    group=root
+    mode=0644
+  sudo: yes
+  notify:
+  - Restart udev
+
+- name: Add user to dialout group
+  user:
+    name={{username}}
+    groups=dialout
+  sudo: yes
+
+- include: eagle.yml
