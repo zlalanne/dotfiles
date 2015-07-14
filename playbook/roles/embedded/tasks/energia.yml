@@ -82,6 +82,7 @@
   user:
     name={{username}}
     groups=dialout
+    append=yes
   sudo: yes
 
 - include: eagle.yml
