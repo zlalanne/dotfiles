@@ -23,6 +23,7 @@
     - unrar
     - cmake
     - build-essential
+    - python-dev
   sudo: yes
 
 - name: Installing vundle
