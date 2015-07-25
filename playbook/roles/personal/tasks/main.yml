@@ -35,3 +35,6 @@
 
 # Include numix theme
 - include: numix.yml
+
+# Install dropbox
+- include: dropbox.yml

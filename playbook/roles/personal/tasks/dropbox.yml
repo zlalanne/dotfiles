@@ -1,0 +1,30 @@
+---
+# Install dropbox
+
+- name: Install dropbox key
+  apt_key:
+    keyserver: pgp.mit.edu
+    state: present
+    id: 5044912E
+  sudo: yes
+
+- name: Add dropbox repo
+  apt_repository:
+    repo='deb http://linux.dropbox.com/ubuntu/ {{ubuntu_codename}} main'
+    state=present
+  sudo: yes
+
+- name: Install dropbox
+  apt:
+    name: dropbox
+    update_cache: yes
+  sudo: yes
+
+- name: Install dropbox dependencies
+  apt:
+    name={{item}}
+    update_cache=yes
+  sudo: yes
+  with_items:
+    - libcanberra-gtk-module
+
