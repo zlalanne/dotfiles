@@ -9,3 +9,4 @@ ubuntu_codename: trusty
 # Hardware configuration
 install_logitech_c920: no
 lenovo: yes
+hidpi: yes

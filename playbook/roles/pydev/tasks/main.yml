@@ -62,6 +62,7 @@
   get_url:
     url=https://download.jetbrains.com/python/pycharm-professional-{{pycharm_version}}.tar.gz
     dest=/tmp
+    validate_certs=no
   when: not pycharm_check.stat.exists
 
 - name: Extract PyCharm tar.gz
@@ -71,3 +72,14 @@
     copy=no
   sudo: yes
   when: not pycharm_check.stat.exists
+
+- name: Adding hidpi to pycharm
+  lineinfile:
+    dest={{item}}
+    state=present
+    line='-Dhidpi=true'
+  sudo: yes
+  with_items:
+    - '/opt/jetbrains/pycharm-{{pycharm_version}}/bin/pycharm.vmoptions'
+    - '/opt/jetbrains/pycharm-{{pycharm_version}}/bin/pycharm64.vmoptions'
+  when: hidpi
