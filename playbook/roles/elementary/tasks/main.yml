@@ -15,6 +15,9 @@
   sudo: yes
   with_items:
     - elementary-tweaks
+    - dconf-tools
+    - fonts-inconsolata
+    - gtk2-engines-pixbuf
 
 - name: Setup terminal colors
   script: terminal_color_scheme.py dark
