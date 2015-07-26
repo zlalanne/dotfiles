@@ -24,6 +24,16 @@
     - gulp
   sudo: yes
 
+- name: Mapping nodejs to node
+  file:
+    path=/usr/bin/node
+    src=/usr/bin/nodejs
+    state=link
+    mode=0755
+    owner=root
+    group=root
+  sudo: yes
+
 # Install Virtualbox
 - include: virtualbox.yml
 
