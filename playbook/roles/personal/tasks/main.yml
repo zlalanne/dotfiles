@@ -9,6 +9,8 @@
   with_items:
     - 'ppa:inkscape.dev/stable'
     - 'ppa:gwendal-lebihan-dev/hexchat-stable'
+    - 'ppa:libreoffice/ppa'
+    - 'ppa:x2go/stable'
   sudo: yes
 
 - name: Install personal packages
@@ -25,6 +27,7 @@
     - hexchat
     - gparted
     - unetbootin
+    - x2goclient
   sudo: yes
 
 # Install Google Chrome
