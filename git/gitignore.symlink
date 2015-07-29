@@ -2,8 +2,12 @@
 *~
 *.swp
 
-# Python
+# Pydev
 *.pyc
+
+# Webdev
+bower_components
+.vagrant
 
 # IDEs
 .idea
