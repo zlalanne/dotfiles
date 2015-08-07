@@ -20,12 +20,14 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'bitc/vim-bad-whitespace'
+Plugin 'pangloss/vim-javascript'
 
 " Tab Settings
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+autocmd FileType html setlocal ts=2 sts=2 sw=2
 
 " Theme
 set t_Co=256
@@ -45,5 +47,8 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Disable markdown folding
 let g:vim_markdown_folding_disabled=1
+
+" Allow HTML syntax highlighting in js file
+let g:javascript_enable_domhtmlcss=1
 
 filetype indent plugin on
