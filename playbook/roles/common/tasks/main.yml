@@ -47,13 +47,31 @@
 - name: Install vim plugins
   command: vim +PluginInstall +qall
 
+- name: Ensure projects directory exists
+  file:
+    path=/home/{{username}}/Projects
+    state=directory
+
+- name: Add powerline fonts
+  git:
+    repo=https://github.com/powerline/fonts.git
+    dest=~/Projects/powerline-fonts
+  register: fonts_git
+
+- name: Install powerline fonts
+  command: ./install.sh
+  args:
+    chdir: /home/{{username}}/Projects/powerline-fonts
+  when: fonts_git.changed
+
 - name: Install oh-my-zsh
   git:
     repo=https://github.com/robbyrussell/oh-my-zsh.git
     dest=~/.oh-my-zsh
 
-- name: Change default shell to zsh
+- name: Ensure shell is zsh
   user:
     name={{username}}
     shell=/usr/bin/zsh
   sudo: yes
+

@@ -21,6 +21,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'bitc/vim-bad-whitespace'
 Plugin 'pangloss/vim-javascript'
+Plugin 'bling/vim-airline'
 
 " Tab Settings
 set smartindent
@@ -36,6 +37,8 @@ set background=dark
 silent! colorscheme solarized
 let g:solarized_termcolors=256
 set colorcolumn=80
+
+let g:airline_powerline_fonts = 1
 
 " Highlight current line
 set cursorline
