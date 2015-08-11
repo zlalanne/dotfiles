@@ -23,6 +23,7 @@
     - grunt
     - gulp
     - react-tools
+    - jshint
   sudo: yes
 
 - name: Mapping nodejs to node

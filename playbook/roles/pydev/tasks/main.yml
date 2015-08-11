@@ -35,6 +35,7 @@
     - virtualenvwrapper
     - pep8
     - tox
+    - cookiecutter
   sudo: yes
 
 - name: Install some python3 modules globally
