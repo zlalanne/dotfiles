@@ -33,7 +33,7 @@
     - virtualenv
     - bpython
     - virtualenvwrapper
-    - pep8
+    - flake8
     - tox
     - cookiecutter
   sudo: yes

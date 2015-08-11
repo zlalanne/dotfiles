@@ -24,6 +24,7 @@
     - gulp
     - react-tools
     - jshint
+    - jsonlint
   sudo: yes
 
 - name: Mapping nodejs to node
