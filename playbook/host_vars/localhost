@@ -7,6 +7,6 @@ email: zack.lalanne@gmail.com
 ubuntu_codename: trusty
 
 # Hardware configuration
-install_logitech_c920: no
+install_logitech_c920: yes
 lenovo: yes
 hidpi: yes
