@@ -23,6 +23,7 @@ Plugin 'bitc/vim-bad-whitespace'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
+Plugin 'elzr/vim-json'
 
 " Tab Settings
 set smartindent
