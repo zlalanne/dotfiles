@@ -42,3 +42,6 @@
 
 # Install Vagrant
 - include: vagrant.yml
+
+# Install heroku toolbelt
+- include: heroku.yml
