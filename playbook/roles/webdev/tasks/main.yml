@@ -25,6 +25,7 @@
     - react-tools
     - jshint
     - jsonlint
+    - csslint
   sudo: yes
 
 - name: Mapping nodejs to node

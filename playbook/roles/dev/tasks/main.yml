@@ -24,5 +24,14 @@
    - pandoc
    - lftp
    - filezilla
+   - libxml2-utils
+  sudo: yes
+
+- name: Install python applications
+  pip:
+    name={{item}}
+    state=latest
+  with_items:
+    - bashate
   sudo: yes
 
