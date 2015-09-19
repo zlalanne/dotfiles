@@ -29,3 +29,10 @@ set-option -g display-panes-colour brightred #orange
 
 # clock
 set-window-option -g clock-mode-colour green #green
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Initialize TPM
+run '~/.tmux/plugins/tpm/tpm'

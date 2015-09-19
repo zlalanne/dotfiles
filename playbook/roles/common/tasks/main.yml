@@ -8,6 +8,7 @@
     update_cache=yes
   with_items:
     - ppa:git-core/ppa
+    - ppa:pi-rho/dev
   sudo: yes
 
 - name: Install packages
@@ -63,6 +64,21 @@
   args:
     chdir: /home/{{username}}/Projects/powerline-fonts
   when: fonts_git.changed
+
+- name: Install tmux plugin manager
+  git:
+    repo=https://github.com/tmux-plugins/tpm
+    dest=~/.tmux/plugins/tpm
+
+- name: Install tmux plugins
+  command: ./install_plugins all
+  args:
+    chdir: /home/{{username}}/.tmux/plugins/tpm/bin
+
+- name: Update tmux plugins
+  command: ./update_plugins all
+  args:
+    chdir: /home/{{username}}/.tmux/plugins/tpm/bin
 
 - name: Install oh-my-zsh
   git:
