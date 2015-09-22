@@ -65,3 +65,4 @@
   sudo: yes
   when: not eclipse_check.stat.exists
 
+- include: idea.yml
