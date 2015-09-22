@@ -25,6 +25,7 @@
    - lftp
    - filezilla
    - libxml2-utils
+   - protobuf-compiler
   sudo: yes
 
 - name: Install python applications
