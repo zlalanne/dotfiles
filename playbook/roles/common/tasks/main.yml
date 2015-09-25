@@ -25,6 +25,7 @@
     - cmake
     - build-essential
     - python-dev
+    - xclip
   sudo: yes
 
 - name: Installing vundle
