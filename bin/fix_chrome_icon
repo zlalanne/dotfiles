@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Fix plank issue that shows multiple chrome icons
+
+sudo sed -i '/Group\]\|Desktop Entry/a StartupWMClass=Google-chrome-stable' /usr/share/applications/google-chrome.desktop
