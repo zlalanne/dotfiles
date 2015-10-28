@@ -7,5 +7,5 @@ eclipse_version: "{{eclipse_version_name}}-{{eclipse_release_name}}"
 
 eclipse_download_url: "http://mirror.cc.vt.edu/pub/eclipse/technology/epp/downloads/release/{{eclipse_version_name}}/{{eclipse_release_name}}/eclipse-java-{{eclipse_version}}-linux-gtk-x86_64.tar.gz"
 
-idea_version: 14.1.1
-idea_full_version: 141.178.9
+idea_version: 14.1.5
+idea_full_version: 141.2735.5
