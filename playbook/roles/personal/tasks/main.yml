@@ -11,6 +11,7 @@
     - 'ppa:gwendal-lebihan-dev/hexchat-stable'
     - 'ppa:libreoffice/ppa'
     - 'ppa:x2go/stable'
+    - 'ppa:mjblenner/ppa-hal'
   sudo: yes
 
 - name: Install personal packages
@@ -28,6 +29,7 @@
     - gparted
     - unetbootin
     - x2goclient
+    - hal
   sudo: yes
 
 # Install Google Chrome
