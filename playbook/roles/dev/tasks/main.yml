@@ -26,6 +26,7 @@
    - filezilla
    - libxml2-utils
    - protobuf-compiler
+   - meld
   sudo: yes
 
 - name: Install python applications
