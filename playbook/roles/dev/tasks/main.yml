@@ -37,3 +37,10 @@
     - bashate
   sudo: yes
 
+- name: Install ruby applications
+  gem:
+    name={{item}}
+    state=latest
+  with_items:
+    - tmuxinator
+  sudo: yes
