@@ -3,3 +3,4 @@
 
 - include: energia.yml
 - include: eagle.yml
+- include: kicad.yml

@@ -1,0 +1,14 @@
+---
+# Installing KiCad
+
+- name: Add KiCad PPA
+  apt_repository:
+    repo='ppa:js-reynaud/kicad-4'
+    update_cache=yes
+  sudo: yes
+
+- name: Install kicad
+  apt:
+    name=kicad
+    state=latest
+  sudo: yes
