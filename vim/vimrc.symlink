@@ -24,6 +24,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'elzr/vim-json'
+Plugin 'mindriot101/vim-yapf'
 
 " Tab Settings
 set smartindent
@@ -65,5 +66,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" YAPF bindings
+:noremap <leader>y :call Yapf()<cr>
 
 filetype indent plugin on
