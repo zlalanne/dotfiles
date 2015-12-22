@@ -37,6 +37,7 @@
     - flake8
     - tox
     - cookiecutter
+    - yapf
   sudo: yes
 
 - name: Install some python3 modules globally
