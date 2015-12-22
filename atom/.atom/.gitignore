@@ -4,3 +4,4 @@ compile-cache
 nohup.out
 packages
 storage
+blob-store
