@@ -57,13 +57,13 @@
 - name: Add powerline fonts
   git:
     repo=https://github.com/powerline/fonts.git
-    dest=~/Projects/powerline-fonts
+    dest=/home/{{username}}/Projects/fonts/powerline-fonts
   register: fonts_git
 
 - name: Install powerline fonts
   command: ./install.sh
   args:
-    chdir: /home/{{username}}/Projects/powerline-fonts
+    chdir: /home/{{username}}/Projects/fonts/powerline-fonts
   when: fonts_git.changed
 
 - name: Install tmux plugin manager
