@@ -16,9 +16,8 @@
   sudo: yes
 
 - name: Install Chrome stable - add to google.list
-  lineinfile:
-    dest=/etc/apt/sources.list.d/google.list
-    line="deb http://dl.google.com/linux/chrome/deb/ stable main"
+  apt_repository:
+    repo="deb http://dl.google.com/linux/chrome/deb/ stable main"
     create=yes
   sudo: yes
 
