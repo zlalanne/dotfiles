@@ -1,0 +1,14 @@
+---
+# Install applications related to i3
+
+- name: Install i3 applications
+  apt:
+    name={{item}}
+    state=latest
+  with_items:
+    - rxvt-unicode-256color
+    - arandr
+    - feh
+    - i3blocks
+    - lxappearance
+  sudo: yes

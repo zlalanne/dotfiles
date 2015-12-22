@@ -1,3 +1,5 @@
+# .zshrc file
+
 # Path to dotfiles repository
 export DOTFILES=$HOME/.dotfiles
 
@@ -8,19 +10,18 @@ then
 fi
 
 # Load oh-my-zsh
-source $DOTFILES/zsh/oh-my-zsh.zsh
+source $HOME/.oh-my-zsh.zsh
 
 # Load all other zsh files
 typeset -U config_files
-config_files=($DOTFILES/**/*.zsh)
-for file in ${config_files:#*/oh-my-zsh.zsh}
+config_files=($HOME/.zsh/*.zsh)
+for file in ${config_files}
 do
     source $file
 done
-
 unset config_files
 
 # User configuration
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$DOTFILES/bin
+export PATH=$HOME/.bin:/usr/local/bin:$PATH
 export EDITOR='vim'
 

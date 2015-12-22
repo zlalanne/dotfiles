@@ -1,0 +1,56 @@
+---
+
+- name: Ensure font directories exist
+  file:
+    path={{item}}
+    state=directory
+  with_items:
+    - /home/{{ansible_user_id}}/Projects/fonts
+    - /home/{{ansible_user_id}}/.local/share/fonts
+
+- name: Download yosemite font
+  git:
+    repo=https://github.com/supermarin/YosemiteSanFranciscoFont.git
+    dest=/home/{{ansible_user_id}}/Projects/fonts/YosemiteSanFranciscoFont
+    update=yes
+  notify:
+    - Update fonts
+
+- name: Add font to fonts folder
+  file:
+    src='/home/{{ansible_user_id}}/Projects/fonts/YosemiteSanFranciscoFont/{{item}}.ttf'
+    dest='/home/{{ansible_user_id}}/.local/share/fonts/{{item}}.ttf'
+    state=link
+  with_items:
+    - 'System San Francisco Display Regular'
+    - 'System San Francisco Display Bold'
+    - 'System San Francisco Display Thin'
+    - 'System San Francisco Display Ultralight'
+
+- name: Download Font-Awesome
+  git:
+    repo=https://github.com/FortAwesome/Font-Awesome.git
+    dest=/home/{{ansible_user_id}}/Projects/fonts/Font-Awesome
+    update=yes
+  notify:
+    - Update fonts
+
+- name: Add font to fonts folder
+  file:
+    src='/home/{{ansible_user_id}}/Projects/fonts/Font-Awesome/fonts/{{item}}.ttf'
+    dest='/home/{{ansible_user_id}}/.local/share/fonts/{{item}}.ttf'
+    state=link
+  with_items:
+    - 'fontawesome-webfont.ttf'
+
+- name: Add font PPAs
+  apt_repository:
+    repo='ppa:no1wantdthisname/ppa'
+    update_cache=yes
+  sudo: yes
+
+- name: Install font packages
+  apt:
+    name='fontconfig-infinality'
+    state=latest
+  sudo: yes
