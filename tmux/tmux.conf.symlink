@@ -31,7 +31,7 @@ set-option -g display-panes-colour brightred #orange
 set-window-option -g clock-mode-colour green #green
 
 # battery
-set -g status-right 'Batt: #{battery_percentage} | %H:%M | %d %b %Y'
+set -g status-right '#{battery_percentage} | %H:%M | %d %b %Y'
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
