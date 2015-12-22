@@ -26,6 +26,7 @@
     - build-essential
     - python-dev
     - xclip
+    - ranger
   sudo: yes
 
 - name: Installing vundle
