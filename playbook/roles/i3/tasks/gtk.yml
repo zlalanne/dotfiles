@@ -1,0 +1,19 @@
+---
+# Adding GTK theme
+
+- name: Add repository key
+  apt_key:
+    url=http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_15.10/Release.key
+  sudo: yes
+
+- name: Add repository
+  apt_repository:
+    repo='deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_15.10/ /'
+    update_cache=yes
+  sudo: yes
+
+- name: Install gtk theme
+  apt:
+    name=arc-theme
+  sudo: yes
+

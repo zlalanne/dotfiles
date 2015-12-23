@@ -75,13 +75,11 @@ URxvt.scrollBar:	false
 URxvt.internalBorder:	0
 URxvt.externalBorder:	0
 
-rofi.font:  	System San Francisco Display 18
-rofi.lines:	5
-rofi.width:	100
-rofi.padding:	480
-rofi.line-margin: 5
-rofi.opacity:   80
-rofi.hlbg:      base03
-rofi.hlfg:      base07
-rofi.eh:        2
-rofi.bc:        base00
+rofi.font:  	          System San Francisco Display 24
+rofi.lines:	              5
+rofi.line-margin:         5
+rofi.opacity:             90
+rofi.hlbg:                S_base03
+rofi.hlfg:                S_yellow
+rofi.eh:                  2
+rofi.bc:                  S_base00
