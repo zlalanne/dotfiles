@@ -48,7 +48,7 @@
 *.color21:      base06
 
 Xcursor.size:		16W
-URxvt.font:		xft:Inconsolata\ for\ Powerline:pixelsize=24
+URxvt.font:		xft:Inconsolata\ for\ Powerline:pixelsize=28
 URxvt.scrollBar:	false
 URxvt.internalBorder:	0
 URxvt.externalBorder:	0

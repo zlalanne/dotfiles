@@ -5,13 +5,4 @@
   hosts: all
   roles:
     - common
-    - webdev
-    - personal
-    - pydev
-    - javadev
-    - dev
-    - embedded
-    - elementary
-    - school
-    - hardware
-    - laptop
+    - i3

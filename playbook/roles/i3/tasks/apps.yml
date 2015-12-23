@@ -11,4 +11,5 @@
     - feh
     - i3blocks
     - lxappearance
+    - rofi
   sudo: yes

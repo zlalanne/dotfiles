@@ -44,7 +44,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(colored-man-pages colorize cp extract history ubuntu rsync git python jsontools vagrant tmux tmuxinator)
 
-ZSH_TMUX_AUTOSTART=true
+#ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 

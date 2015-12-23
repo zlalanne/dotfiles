@@ -41,7 +41,7 @@
     dest='/home/{{ansible_user_id}}/.local/share/fonts/{{item}}.ttf'
     state=link
   with_items:
-    - 'fontawesome-webfont.ttf'
+    - 'fontawesome-webfont'
 
 - name: Add font PPAs
   apt_repository:
