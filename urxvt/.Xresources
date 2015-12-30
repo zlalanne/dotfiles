@@ -70,16 +70,16 @@
 
 
 Xcursor.size:		16W
-URxvt.font:		xft:Inconsolata\ for\ Powerline:pixelsize=28
-URxvt.scrollBar:	false
-URxvt.internalBorder:	0
-URxvt.externalBorder:	0
+URxvt.font:		          xft:Inconsolata\ for\ Powerline:pixelsize=28
+URxvt.scrollBar:	      false
+!URxvt.internalBorder:	  0
+!URxvt.externalBorder:	  0
 
-rofi.font:  	          System San Francisco Display 24
-rofi.lines:	              5
-rofi.line-margin:         5
-rofi.opacity:             90
-rofi.hlbg:                S_base03
-rofi.hlfg:                S_yellow
-rofi.eh:                  2
-rofi.bc:                  S_base00
+
+Xft.dpi:                  180
+Xft.autohint:             0
+Xft.lcdfilter:            lcddefault
+Xft.hintstyle:            hintfull
+Xft.hinting:              1
+Xft.antialias:            1
+Xft.rgba:                 rgb
