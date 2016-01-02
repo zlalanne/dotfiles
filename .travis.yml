@@ -1,6 +1,6 @@
 ---
 
 before_install:
-    - sudo add-apt-repository ppa:ansible/ansible
-    - sudo apt-get update
-    - sudo apt-get install ansible
+    - sudo add-apt-repository ppa:ansible/ansible --yes
+    - sudo apt-get update --quiet
+    - sudo apt-get install ansible --yes
