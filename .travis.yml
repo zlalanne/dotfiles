@@ -6,4 +6,4 @@ before_install:
     - sudo apt-get install ansible stow --yes
 
 script:
-    - ./script/linux_laptop.sh
+    - ./script/linux_laptop
