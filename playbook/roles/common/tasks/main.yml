@@ -44,7 +44,7 @@
 - name: Compile YouCompleteMe
   command: ./install.sh --clang-completer
   args:
-    chdir: /home/{{user}}/.vim/bundle/YouCompleteMe
+    chdir: /home/{{remote_user}}/.vim/bundle/YouCompleteMe
   when: ycm_git.changed
 
 - name: Install vim plugins
@@ -52,7 +52,7 @@
 
 - name: Ensure projects directory exists
   file:
-    path=/home/{{user}}/Projects/fonts
+    path=/home/{{remote_user}}/Projects/fonts
     state=directory
 
 - name: Add powerline fonts
