@@ -44,7 +44,7 @@
 - name: Compile YouCompleteMe
   command: ./install.sh --clang-completer
   args:
-    chdir: /home/{{username}}/.vim/bundle/YouCompleteMe
+    chdir: /home/{{user}}/.vim/bundle/YouCompleteMe
   when: ycm_git.changed
 
 - name: Install vim plugins
@@ -52,19 +52,19 @@
 
 - name: Ensure projects directory exists
   file:
-    path=/home/{{username}}/Projects
+    path=/home/{{user}}/Projects/fonts
     state=directory
 
 - name: Add powerline fonts
   git:
     repo=https://github.com/powerline/fonts.git
-    dest=/home/{{username}}/Projects/fonts/powerline-fonts
+    dest=/home/{{user}}/Projects/fonts/powerline-fonts
   register: fonts_git
 
 - name: Install powerline fonts
   command: ./install.sh
   args:
-    chdir: /home/{{username}}/Projects/fonts/powerline-fonts
+    chdir: /home/{{user}}/Projects/fonts/powerline-fonts
   when: fonts_git.changed
 
 - name: Install tmux plugin manager

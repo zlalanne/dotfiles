@@ -5,4 +5,3 @@
   hosts: all
   roles:
     - common
-    - i3
