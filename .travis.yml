@@ -3,4 +3,7 @@
 before_install:
     - sudo add-apt-repository ppa:ansible/ansible --yes
     - sudo apt-get update --quiet
-    - sudo apt-get install ansible --yes
+    - sudo apt-get install ansible stow --yes
+
+script:
+    - ./script/linux_laptop.sh
