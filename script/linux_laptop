@@ -2,7 +2,6 @@
 #
 # Setup for a Linux laptop. Currently a Lenovo ThinkPad X1 Carbon 2015
 
-cd ..
 stow atom
 stow bin
 stow git
@@ -13,5 +12,5 @@ stow urxvt
 stow vim
 stow zsh
 
-cd ../playbook
+cd playbook
 ansible-playbook -i hosts machines.yml
