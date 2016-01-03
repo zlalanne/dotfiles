@@ -13,5 +13,5 @@ stow urxvt
 stow vim
 stow zsh
 
-cd playbook
+cd ../playbook
 ansible-playbook -i hosts machines.yml
