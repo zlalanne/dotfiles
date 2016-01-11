@@ -209,6 +209,7 @@ popup_during_fullscreen smart
 exec --no-startup-id compton
 exec nm-applet
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
+exec_always --no-startup-id dunst -conf ~/.dunstrc
 
 # Google Hangouts
 exec google-chrome --user-data-dir=$HOME/.config/google-chrome --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl
