@@ -94,7 +94,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # Start rofi (as program launcher)
-bindsym $mod+d exec --no-startup-id rofi -opacity 92 -lines 5 -padding 100 -fuzzy -bg "$base03" -bc "$green" -bw 4 -hlbg "$base03" -fg "$base3" -font "System San Francisco Display 24" -hlfg "$magenta" -eh 1.2 -show run
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -opacity 92 -lines 5 -padding 100 -fuzzy -bg "$base03" -bc "$green" -bw 4 -hlbg "$base03" -fg "$base3" -font "System San Francisco Display 24" -hlfg "$magenta" -eh 1.2 -dmenu -p "run:"'
 
 # Start rofi (as window selector)
 bindsym $mod+Tab exec --no-startup-id rofi -opacity 92 -lines 5 -padding 100 -fuzzy -bg "$base03" -bc "$green" -bw 4 -hlbg "$base03" -fg "$base3" -font "System San Francisco Display 24" -hlfg "$magenta" -eh 1.2 -show window
