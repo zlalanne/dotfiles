@@ -76,13 +76,21 @@ exec_always --no-startup-id dunst -conf ~/.dunstrc
 # Network manager applet
 exec nm-applet
 
-# Monitor setup
+# Automount USB drives
+exec_always --no-startup-id udiskie --automount --notify --smart-tray
+
+# Hide mouse when not used
+exec_always --no-startup-id unclutter
+
+# Monlitor setup
 exec_always --no-startup-id xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off --dpi $dpi
 
 # Google Hangouts
-exec google-chrome --user-data-dir=$HOME/.config/google-chrome --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl
+exec --no-startup-id google-chrome --user-data-dir=$HOME/.config/google-chrome --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl
 # Todoist
-exec google-chrome --user-data-dir=$HOME/.config/google-chrome --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd
+exec --no-startup-id google-chrome --user-data-dir=$HOME/.config/google-chrome --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd
+exec i3-msg '[title="Hangouts"] focus'
+exec i3-msg '[title="Todoist"] focus'
 
 ### Bindings
 ###############################################################################
@@ -220,6 +228,17 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
+mode "move" {
+    bindsym Up move up 20px
+    bindsym Left move left 20px
+    bindsym Down move down 20px
+    bindsym Right move right 20px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+m focus floating; mode "move"
+
 ### Themes and Status Bar
 ###############################################################################
 
@@ -255,10 +274,10 @@ bar {
 ###############################################################################
 
 # Assign Workspaces
-assign [title="Hangouts"] $workspace9
-assign [title="Todoist"] $workspace8
-assign [title="Sunrise Calendar"] $workspace8
-assign [title="PocketCaster"] $workspace10
+for_window [title="Hangouts"] move workspace $workspace9
+for_window [title="Todoist"] move workspace $workspace8
+for_window [title="Sunrise Calendar"] move workspace $workspace8
+for_window [title="PocketCaster"] move workspace $workspace10
 assign [class="Firefox"] $workspace1
 assign [class="Spotify"] $workspace10
 
