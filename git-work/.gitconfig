@@ -1,0 +1,22 @@
+[hub]
+        protocol = https
+[user]
+        name = Zack Lalanne
+        email = zack.lalanne@ti.com
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+        preloadindex = true
+[apply]
+        whitespace = nowarn
+[mergetool]
+        keepBackup = false
+[difftool]
+        prompt = false
+[help]
+        autocorrect = 1

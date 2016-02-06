@@ -1,0 +1,13 @@
+.DS_Store
+*~
+*.swp
+
+# Pydev
+*.pyc
+
+# Webdev
+bower_components
+.vagrant
+
+# IDEs
+.idea
