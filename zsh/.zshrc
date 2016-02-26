@@ -1,9 +1,14 @@
 # .zshrc file
+#
+# To Customize:
+# - Put files to source in $HOME/.zsh/ directory
+# - To configure oh-my-zsh plugins/settings/theme modify $HOME/.oh-my-zsh
+# - Put any local settings to source in $HOME/.localrc
 
 # Path to dotfiles repository
 export DOTFILES=$HOME/.dotfiles
 
-# Load local settings
+# Load local settings if it exists
 if [[ -a $HOME/.localrc ]]
 then
     source $HOME/.localrc
