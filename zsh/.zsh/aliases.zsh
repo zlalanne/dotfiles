@@ -6,3 +6,10 @@ alias mkdir='mkdir -p -v'
 alias mv=' timeout 8 mv -iv'
 alias rm=' timeout 3 rm -Iv --one-file-system'
 
+# Clipboard
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection clipboard -o'
+
+# Files to Edit
+alias i3conf="vim ~/.config/i3/config"
+alias vimrc="vim ~/.vimrc"
