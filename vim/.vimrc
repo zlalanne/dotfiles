@@ -25,6 +25,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'elzr/vim-json'
 Plugin 'mindriot101/vim-yapf'
+Plugin 'scrooloose/nerdtree'
 
 " Tab Settings
 set smartindent
