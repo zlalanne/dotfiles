@@ -11,7 +11,15 @@
     - feh
     - i3blocks
     - lxappearance
-    - rofi
     - unclutter
-    - python2-udiskie
+    - compton
   become: yes
+
+- name: Download applications
+  git:
+    repo='https://github.com/{{username}}/{{app}}.git'
+    dest=/home/{{ansible_user_id}}/Projects/apps/{{app}}
+    depth=1
+  with_items:
+    - { 'username': 'vivien', 'app': 'i3blocks' }
+    - { 'username': 'DaveDavenport', 'app': 'rofi' }

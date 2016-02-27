@@ -53,8 +53,11 @@
 
 - name: Ensure projects directory exists
   file:
-    path=/home/{{ansible_user_id}}/Projects/fonts
+    path=/home/{{ansible_user_id}}/Projects/{{item}}
     state=directory
+  with_items:
+    - fonts
+    - apps
 
 - name: Add powerline fonts
   git:
