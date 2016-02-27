@@ -18,7 +18,7 @@
     name=i3
     state=latest
     update_cache=yes
-  becom: yes
+  become: yes
 
 - include: fonts.yml
 - include: apps.yml
