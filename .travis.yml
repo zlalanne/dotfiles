@@ -4,11 +4,16 @@ sudo: required
 dist: trusty
 language: generic
 
+git:
+  depth: 1
+
 before_install:
     - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty universe multiverse"
     - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates universe multiverse"
     - sudo add-apt-repository ppa:ansible/ansible --yes
     - sudo apt-get update --quiet
+
+install:
     - sudo apt-get install ansible stow --yes
 
 script:
