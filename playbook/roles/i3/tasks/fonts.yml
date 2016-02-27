@@ -13,6 +13,7 @@
     repo=https://github.com/supermarin/YosemiteSanFranciscoFont.git
     dest=/home/{{ansible_user_id}}/Projects/fonts/YosemiteSanFranciscoFont
     update=yes
+    depth=1
   notify:
     - Update fonts
 
@@ -27,30 +28,17 @@
     - 'System San Francisco Display Thin'
     - 'System San Francisco Display Ultralight'
 
-- name: Download Font-Awesome
-  git:
-    repo=https://github.com/FortAwesome/Font-Awesome.git
-    dest=/home/{{ansible_user_id}}/Projects/fonts/Font-Awesome
-    update=yes
-  notify:
-    - Update fonts
-
-- name: Add font to fonts folder
-  file:
-    src='/home/{{ansible_user_id}}/Projects/fonts/Font-Awesome/fonts/{{item}}.ttf'
-    dest='/home/{{ansible_user_id}}/.local/share/fonts/{{item}}.ttf'
-    state=link
-  with_items:
-    - 'fontawesome-webfont'
-
 - name: Add font PPAs
   apt_repository:
     repo='ppa:no1wantdthisname/ppa'
     update_cache=yes
-  sudo: yes
+  become: yes
 
 - name: Install font packages
   apt:
-    name='fontconfig-infinality'
+    name={{item}}
     state=latest
-  sudo: yes
+  with_items:
+    - 'fontconfig-infinality'
+    - 'fonts-font-awesome'
+  become: yes

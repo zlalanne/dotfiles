@@ -14,4 +14,4 @@
     - rofi
     - unclutter
     - python2-udiskie
-  sudo: yes
+  become: yes

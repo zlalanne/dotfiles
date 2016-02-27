@@ -4,21 +4,21 @@
   apt_repository:
     repo='deb http://debian.sur5r.net/i3/ {{ansible_distribution_release}} universe'
     update_cache=yes
-  sudo: yes
+  become: yes
 
 - name: Install sur5r-keyring
   apt:
     name=sur5r-keyring
     state=latest
     force=yes
-  sudo: yes
+  become: yes
 
 - name: Install i3
   apt:
     name=i3
     state=latest
     update_cache=yes
-  sudo: yes
+  becom: yes
 
 - include: fonts.yml
 - include: apps.yml
