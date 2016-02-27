@@ -16,8 +16,8 @@
 
 - name: Download applications
   git:
-    repo='https://github.com/{{username}}/{{app}}.git'
-    dest=/home/{{ansible_user_id}}/Projects/apps/{{app}}
+    repo='https://github.com/{{item.username}}/{{item.app}}.git'
+    dest=/home/{{ansible_user_id}}/Projects/apps/{{item.app}}
     depth=1
   with_items:
     - { 'username': 'vivien', 'app': 'i3blocks' }
