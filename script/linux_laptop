@@ -2,6 +2,10 @@
 #
 # Setup for a Linux laptop. Currently a Lenovo ThinkPad X1 Carbon 2015
 
+# Remove old files
+rm -rf ~/.zshrc
+
+# Link dotfiles
 stow -t ~/ atom
 stow -t ~/ bin
 stow -t ~/ git
@@ -12,5 +16,6 @@ stow -t ~/ urxvt
 stow -t ~/ vim
 stow -t ~/ zsh
 
+# Run installation
 cd playbook
 ansible-playbook -i hosts machines.yml
