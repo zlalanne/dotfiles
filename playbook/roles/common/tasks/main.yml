@@ -9,7 +9,7 @@
   with_items:
     - ppa:git-core/ppa
     - ppa:pi-rho/dev
-  sudo: yes
+  become: yes
 
 - name: Install packages
   apt:
@@ -27,7 +27,7 @@
     - python-dev
     - xclip
     - ranger
-  sudo: yes
+  become: yes
 
 - name: Installing vundle
   git:
@@ -91,5 +91,5 @@
   user:
     name={{username}}
     shell=/usr/bin/zsh
-  sudo: yes
+  become: yes
 
