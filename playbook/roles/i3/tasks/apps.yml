@@ -12,6 +12,7 @@
     - lxappearance
     - unclutter
     - compton
+    - autocutsel
   become: yes
 
 - name: Download applications
@@ -20,5 +21,4 @@
     dest=/home/{{ansible_user_id}}/Projects/apps/{{item.app}}
     depth=1
   with_items:
-    - { 'username': 'vivien', 'app': 'i3blocks' }
-    - { 'username': 'DaveDavenport', 'app': 'rofi' }
+    - apps
