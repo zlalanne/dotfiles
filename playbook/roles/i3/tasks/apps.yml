@@ -31,7 +31,7 @@
   command: ./configure
   args:
     chdir: '/home/{{ansible_user_id}}/Projects/apps/{{item.app}}'
-  ignore_errorrs: True
+  ignore_errors: True
   with_items: '{{apps}}'
 
 - name: Build applications
