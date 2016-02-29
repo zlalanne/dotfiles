@@ -21,3 +21,18 @@
     dest=/home/{{ansible_user_id}}/Projects/apps/{{item.app}}
     depth=1
   with_items: apps
+  register: {{item.app}}_git
+
+- name: Build i3blocks
+  command: make clean all
+  args:
+    chdir: /home/{{ansible_user_id}}/Projects/apps/i3blocks
+  when: i3blocks.git.changed
+
+- name: Install i3blocks
+  command: make install
+  args:
+    chdir: /home/{{ansible_user_id}}/Projects/apps/i3blocks
+  when: i3blocks.git.changed
+  become: yes
+
