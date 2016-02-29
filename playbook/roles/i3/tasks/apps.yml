@@ -13,6 +13,7 @@
     - unclutter
     - compton
     - autocutsel
+    - zathura
   become: yes
 
 - name: Download applications
@@ -21,7 +22,7 @@
     dest=/home/{{ansible_user_id}}/Projects/apps/{{item.app}}
     depth=1
   with_items: apps
-  register: {{item.app}}_git
+  register: '{{item.app}}_git'
 
 - name: Build i3blocks
   command: make clean all
