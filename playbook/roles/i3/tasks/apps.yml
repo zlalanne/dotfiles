@@ -16,24 +16,34 @@
     - zathura
   become: yes
 
+# TODO: need a better way to save results to see if changes occur
+
 - name: Download applications
   git:
     repo='https://github.com/{{item.username}}/{{item.app}}.git'
-    dest=/home/{{ansible_user_id}}/Projects/apps/{{item.app}}
+    dest='/home/{{ansible_user_id}}/Projects/apps/{{item.app}}'
+    version='{{item.branch}}'
     depth=1
   with_items: '{{apps}}'
-  register: '{{item.app}}_git'
+  register: app_results
 
-- name: Build i3blocks
+- name: Configure applications
+  command: ./configure
+  args:
+    chdir: '/home/{{ansible_user_id}}/Projects/apps/{{item.app}}'
+  ignore_errorrs: True
+  with_items: '{{apps}}'
+
+- name: Build applications
   command: make clean all
   args:
-    chdir: /home/{{ansible_user_id}}/Projects/apps/i3blocks
-  when: i3blocks_git.changed
+    chdir: '/home/{{ansible_user_id}}/Projects/apps/{{item.app}}'
+  with_items: '{{apps}}'
 
-- name: Install i3blocks
+- name: Install applications
   command: make install
   args:
-    chdir: /home/{{ansible_user_id}}/Projects/apps/i3blocks
-  when: i3blocks_git.changed
+    chdir: '/home/{{ansible_user_id}}/Projects/apps/{{item.app}}'
+  with_items: '{{apps}}'
   become: yes
 

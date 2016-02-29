@@ -2,7 +2,7 @@
 # Variables for i3 role
 
 apps:
-   - { 'username': 'vivien', 'app': 'i3blocks' }
-   - { 'username': 'DaveDavenport', 'app': 'rofi' }
-   - { 'username': 'Airblader', 'app': 'i3' }
+  - { 'username': 'vivien', 'app': 'i3blocks', 'branch': 'master' }
+  - { 'username': 'DaveDavenport', 'app': 'rofi', 'branch': 'master' }
+  - { 'username': 'Airblader', 'app': 'i3', 'branch': 'gaps' }
 
