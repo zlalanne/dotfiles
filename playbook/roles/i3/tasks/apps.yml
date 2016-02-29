@@ -20,5 +20,4 @@
     repo='https://github.com/{{item.username}}/{{item.app}}.git'
     dest=/home/{{ansible_user_id}}/Projects/apps/{{item.app}}
     depth=1
-  with_items:
-    - apps
+  with_items: apps
