@@ -24,7 +24,6 @@
 - name: Clone git repository
   git:
     repo=https://github.com/Airblader/i3.git
-    depth=1
     dest='/home/{{ansible_user_id}}/Projects/apps/i3-gaps'
     version=gaps
   register: i3gaps_git
