@@ -1,6 +1,21 @@
 ---
 # Install i3blocks from source
 
+- name: Ensure rofi dependencies installed
+  apt:
+    name={{item}}
+  with_items:
+    - libxinerama-dev
+    - libxft2-dev
+    - libpango-dev
+    - libpangocairo-dev
+    - libcairo-dev
+    - libcairo-xlib-dev
+    - libglib2.0-dev
+    - libx11-dev
+    - libstartup-notification-1.0-dev
+  become: yes
+
 - name: Download rofi
   unarchive:
     src={{rofi_url}}
