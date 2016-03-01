@@ -4,26 +4,26 @@
 - name: Download rofi
   unarchive:
     src={{rofi_url}}
-    dest='/home/{{ansible_user_id}}/Projects/apps/rofi'
+    dest='/home/{{ansible_user_id}}/Projects/apps'
     copy=no
   register: rofi_tar
 
 - name: Configure rofi
   command: ./configure
   args:
-    chdir: '/home/{{ansible_user_id}}/Projects/apps/rofi'
+    chdir: '/home/{{ansible_user_id}}/Projects/apps/rofi-{{rofi_version}}'
   when: rofi_tar.changed
 
 - name: Build rofi
   command: make
   args:
-    chdir: '/home/{{ansible_user_id}}/Projects/apps/rofi'
+    chdir: '/home/{{ansible_user_id}}/Projects/apps/rofi-{{rofi_version}}'
   when: rofi_tar.changed
 
 - name: Install rofi
   command: make install
   args:
-    chdir: '/home/{{ansible_user_id}}/Projects/apps/rofi'
+    chdir: '/home/{{ansible_user_id}}/Projects/apps/rofi-{{rofi_version}}'
   become: yes
   when: rofi_tar.changed
 
