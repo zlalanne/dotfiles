@@ -1,8 +1,5 @@
 ---
 # Variables for i3 role
 
-apps:
-  - { 'username': 'vivien', 'app': 'i3blocks', 'branch': 'master' }
-  - { 'username': 'DaveDavenport', 'app': 'rofi', 'branch': 'master' }
-  - { 'username': 'Airblader', 'app': 'i3', 'branch': 'gaps' }
-
+rofi_version: 0.15.12
+rofi_url: 'https://github.com/DaveDavenport/rofi/releases/download/{{rofi_version}}/rofi-{{rofi_version}}.tar.gz'
