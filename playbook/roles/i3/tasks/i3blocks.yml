@@ -1,0 +1,23 @@
+---
+# Install i3blocks from source
+
+- name: Clone git repository
+  git:
+    repo=https://github.com/vivien/i3blocks.git
+    depth=1
+    dest='/home/{{ansible_user_id}}/Projects/apps/i3blocks'
+  register: i3blocks_git
+
+- name: Build i3blocks
+  command: make clean all
+  args:
+    chdir: '/home/{{ansible_user_id}}/Projects/apps/i3blocks'
+  when: i3blocks_git.changed
+
+- name: Install i3blocks
+  command: make install
+  args:
+    chdir: '/home/{{ansible_user_id}}/Projects/apps/i3blocks'
+  become: yes
+  when: i3blocks_git.changed
+
