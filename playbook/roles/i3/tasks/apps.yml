@@ -16,7 +16,6 @@
     - zathura
   become: yes
 
-# TODO: need a better way to save results to see if changes occur
-
 - include: i3blocks.yml
+- include: i3gaps.yml
 
