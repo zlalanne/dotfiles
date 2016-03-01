@@ -69,11 +69,12 @@
 *color15:                 S_base3
 
 
-Xcursor.size:		16W
+Xcursor.size:		      16W
 URxvt.font:		          xft:Inconsolata\ for\ Powerline:pixelsize=28
 URxvt.scrollBar:	      false
 !URxvt.internalBorder:	  0
 !URxvt.externalBorder:	  0
+URxvt.intensityStyles:    false
 
 
 Xft.dpi:                  180
