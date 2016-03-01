@@ -7,13 +7,12 @@
   with_items:
     - libxinerama-dev
     - libxft2-dev
-    - libpango-dev
-    - libpangocairo-dev
-    - libcairo-dev
-    - libcairo-xlib-dev
+    - libpango1.0-dev
+    - libpangocairo-1.0-0
+    - libcairo2-dev
     - libglib2.0-dev
     - libx11-dev
-    - libstartup-notification-1.0-dev
+    - libstartup-notification0-dev
   become: yes
 
 - name: Download rofi
