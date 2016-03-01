@@ -1,6 +1,12 @@
 ---
 # Install i3gaps from source
 
+- name: Ensure i3 build dependencies
+  apt:
+    name=i3
+    state=build-dep
+  become: yes
+
 - name: Clone git repository
   git:
     repo=https://github.com/Airblader/i3.git
