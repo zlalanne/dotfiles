@@ -39,5 +39,5 @@
   args:
     chdir: '/home/{{ansible_user_id}}/Projects/apps/i3-gaps'
   become: yes
-  when: i3gaps_git.changed
+  when: i3gaps_git.changed or i3apt.changed
 

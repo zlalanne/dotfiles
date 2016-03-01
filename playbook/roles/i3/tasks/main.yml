@@ -18,6 +18,7 @@
     name=i3
     state=latest
     update_cache=yes
+  register: i3apt
   become: yes
 
 - include: fonts.yml
