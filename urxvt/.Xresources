@@ -75,6 +75,7 @@ URxvt.scrollBar:	      false
 !URxvt.internalBorder:	  0
 !URxvt.externalBorder:	  0
 URxvt.intensityStyles:    false
+URxvt.letterSpace:        -1
 
 
 Xft.dpi:                  180
