@@ -7,24 +7,22 @@
     - chromium-browser
     - chromium-browser-l10n
     - chromium-codecs-ffmpeg-extra
-  sudo: yes
+  become: yes
 
 - name: Add Google repo key
   apt_key:
     url=https://dl-ssl.google.com/linux/linux_signing_key.pub
     state=present
-  sudo: yes
+  become: yes
 
 - name: Install Chrome stable - add to google.list
   apt_repository:
-    repo="deb http://dl.google.com/linux/chrome/deb/ stable main"
-    create=yes
-  sudo: yes
+    repo="deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+    filename='google-chrome.list'
+  become: yes
 
 - name: Install Chrome stable
   apt:
     name=google-chrome-stable
     state=latest
-    update_cache=yes
-  sudo: yes
-  ignore_errors: yes
+  become: yes
