@@ -12,7 +12,7 @@
     - 'ppa:libreoffice/ppa'
     - 'ppa:x2go/stable'
     - 'ppa:mjblenner/ppa-hal'
-  sudo: yes
+  become: yes
 
 - name: Install personal packages
   apt:
@@ -30,7 +30,7 @@
     - unetbootin
     - x2goclient
     - hal
-  sudo: yes
+  become: yes
 
 # Install Google Chrome
 - include: chrome.yml
