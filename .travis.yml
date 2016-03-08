@@ -5,7 +5,7 @@ dist: trusty
 language: generic
 
 git:
-  depth: 1
+  depth: 10
 
 before_install:
     - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty universe multiverse"
