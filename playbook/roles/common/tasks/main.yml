@@ -99,4 +99,5 @@
     name={{ansible_user_id}}
     shell=/usr/bin/zsh
   become: yes
+  when: change_shell
 

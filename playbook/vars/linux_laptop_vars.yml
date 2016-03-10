@@ -1,6 +1,8 @@
 ---
 # Variables for Linux Laptop installation
 
+change_shell: True
+
 # Hardware configuration
 install_logitech_c920: yes
 lenovo: yes
