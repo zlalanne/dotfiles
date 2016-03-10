@@ -1,5 +1,7 @@
 # dotfiles
 
+[![Build Status](https://travis-ci.org/zlalanne/dotfiles.svg?branch=master)](https://travis-ci.org/zlalanne/dotfiles)
+
 There are two parts to my personal dotfiles repository.
 
 1. Bootstrap script taken from the [Zach Holman dotfiles](https://github.com/holman/dotfiles)
