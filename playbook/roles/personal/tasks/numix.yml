@@ -4,7 +4,7 @@
 - name: Add numix PPA
   apt_repository:
     repo='ppa:numix/ppa'
-  sudo: yes
+  become: yes
 
 - name: Install numix packages
   apt:
@@ -14,5 +14,4 @@
     - numix-gtk-theme
     - numix-icon-theme
     - numix-icon-theme-circle
-    - numix-plank-theme
-  sudo: yes
+  become: yes
