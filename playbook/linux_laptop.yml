@@ -3,7 +3,8 @@
 
 - name: Install all needed roles
   hosts: all
-  vars_files: vars/linux_laptop_vars.yml
+  vars_files:
+    - vars/linux_laptop_vars.yml
   roles:
     - common
     - i3
