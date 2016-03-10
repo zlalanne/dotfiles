@@ -11,18 +11,18 @@
     - python-setuptools
     - python3-setuptools
     - libffi-dev # To build bpython dependencies
-  sudo: yes
+  become: yes
 
 - name: Install pip
   easy_install:
     name=pip
-  sudo: yes
+  become: yes
 
 - name: Install pip3
   easy_install:
     name=pip
     executable=easy_install3
-  sudo: yes
+  become: yes
 
 - name: Install some python2 modules globally
   pip:
@@ -38,7 +38,7 @@
     - tox
     - cookiecutter
     - yapf
-  sudo: yes
+  become: yes
 
 - name: Install some python3 modules globally
   pip:
@@ -48,7 +48,7 @@
   with_items:
     - virtualenv
     - bpython
-  sudo: yes
+  become: yes
 
 - name: Check if PyCharm installed
   stat: path=/opt/jetbrains/pycharm-{{pycharm_version}}/bin/pycharm.sh
@@ -58,7 +58,7 @@
   file:
     path=/opt/jetbrains
     state=directory
-  sudo: yes
+  become: yes
   when: not pycharm_check.stat.exists
 
 - name: Download PyCharm installer
@@ -73,7 +73,7 @@
     src=/tmp/pycharm-professional-{{pycharm_version}}.tar.gz
     dest=/opt/jetbrains
     copy=no
-  sudo: yes
+  become: yes
   when: not pycharm_check.stat.exists
 
 - name: Adding hidpi to pycharm
@@ -81,7 +81,7 @@
     dest={{item}}
     state=present
     line='-Dhidpi=true'
-  sudo: yes
+  become: yes
   with_items:
     - '/opt/jetbrains/pycharm-{{pycharm_version}}/bin/pycharm.vmoptions'
     - '/opt/jetbrains/pycharm-{{pycharm_version}}/bin/pycharm64.vmoptions'

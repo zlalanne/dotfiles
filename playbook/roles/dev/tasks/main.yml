@@ -10,7 +10,7 @@
     - 'ppa:webupd8team/atom'
     - 'ppa:webupd8team/sublime-text-3'
     - 'ppa:neovim-ppa/unstable'
-  sudo: yes
+  become: yes
 
 - name: Install appllications
   apt:
@@ -27,7 +27,7 @@
    - libxml2-utils
    - protobuf-compiler
    - meld
-  sudo: yes
+  become: yes
 
 - name: Install python applications
   pip:
@@ -35,7 +35,7 @@
     state=latest
   with_items:
     - bashate
-  sudo: yes
+  become: yes
 
 - name: Install ruby applications
   gem:
@@ -43,4 +43,4 @@
     state=latest
   with_items:
     - tmuxinator
-  sudo: yes
+  become: yes
