@@ -15,7 +15,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
-Plugin 'chase/vim-ansible-yaml'
+Plugin 'pearofducks/ansible-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Glench/Vim-Jinja2-Syntax'
@@ -25,8 +25,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'elzr/vim-json'
-Plugin 'mindriot101/vim-yapf'
 Plugin 'scrooloose/nerdtree'
+
+let mapleader=" "
 
 " Tab Settings
 set smartindent
@@ -68,8 +69,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-" YAPF bindings
-:noremap <leader>y :call Yapf()<cr>
 
 filetype indent plugin on
