@@ -17,4 +17,4 @@ install:
     - sudo apt-get install ansible stow --yes
 
 script:
-    - travis_wait 30 ./script/linux_laptop
+    - ./script/linux_laptop

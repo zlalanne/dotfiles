@@ -1,0 +1,7 @@
+---
+# Variables for Linux Laptop installation
+
+# Hardware configuration
+install_logitech_c920: yes
+lenovo: yes
+hidpi: yes

@@ -18,4 +18,4 @@ stow -t ~/ zsh
 
 # Run installation
 cd playbook
-ansible-playbook -i hosts machines.yml
+ansible-playbook -i hosts linux_laptop.yml

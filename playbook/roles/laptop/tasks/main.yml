@@ -5,14 +5,14 @@
   apt_repository:
     repo='ppa:linrunner/tlp'
     state=present
-  sudo: yes
+    update_cache=yes
+  become: yes
 
 - name: Install TLP
   apt:
     name={{item}}
-    update_cache=yes
     state=latest
-  sudo: yes
+  become: yes
   with_items:
     - tlp
     - tlp-rdw
@@ -20,11 +20,10 @@
 - name: Install extra lenovo tools
   apt:
     name={{item}}
-    update_cache=yes
     state=latest
-  sudo: yes
+  become: yes
   with_items:
     - tp-smapi-dkms
     - acpi-call-dkms
-  when: lenovo 
+  when: lenovo
 
