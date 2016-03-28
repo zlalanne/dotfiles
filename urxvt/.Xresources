@@ -68,17 +68,32 @@
 *color14:                 S_base1
 *color15:                 S_base3
 
+Xcursor.theme:            DMZ-White
+
 
 Xcursor.size:		      16W
 URxvt.font:		          xft:Inconsolata\ for\ Powerline:pixelsize=28
+URxvt.boldFont:           xft:Inconsolata\ for\ Powerline:pixelsize=28:bold
+URxvt.italicFont:         xft:Inconsolata\ for\ Powerline:pixelsize=28:italic
+URxvt.boldItalicFont:     xft:Inconsolata\ for\ Powerline:pixelsize=28:bold:italic
+
 URxvt.scrollBar:	      false
-!URxvt.internalBorder:	  0
-!URxvt.externalBorder:	  0
+URxvt.internalBorder:	  0
+URxvt.externalBorder:	  0
 URxvt.intensityStyles:    false
 URxvt.letterSpace:        -1
 
+URxvt.perl-ext-common:    matcher,resize-font
+
+URxvt.keysym.F11:         perl:fullscreen:switch
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
+
+URxvt.url-launcher:       /usr/bin/google-chrome-stable
+URxvt.colorUL:            S_base03
 
 Xft.dpi:                  180
+
 Xft.autohint:             0
 Xft.lcdfilter:            lcddefault
 Xft.hintstyle:            hintfull
