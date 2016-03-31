@@ -27,6 +27,7 @@
     - python-dev
     - xclip
     - ranger
+    - dos2unix
   become: yes
 
 - name: Installing vundle
