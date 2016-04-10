@@ -8,6 +8,7 @@
   with_items:
     - texlive-full
     - texmaker
+    - rubber
+    - inotify-tools
   sudo: yes
 
-- include: network_connect.yml
