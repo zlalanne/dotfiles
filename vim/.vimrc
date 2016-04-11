@@ -70,4 +70,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" ansible-vim settings
+let g:ansible_attribute_highlight = "ab"
+let g:ansible_name_highlight = "b"
+
 filetype indent plugin on
