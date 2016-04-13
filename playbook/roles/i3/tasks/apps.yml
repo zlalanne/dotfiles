@@ -19,4 +19,4 @@
 - include: i3blocks.yml
 - include: i3gaps.yml
 - include: rofi.yml
-
+- include: unclutter.yml
