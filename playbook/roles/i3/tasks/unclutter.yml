@@ -6,6 +6,7 @@
     name={{item}}
   with_items:
     - libxi-dev
+    - asciidoc
   become: yes
 
 - name: Clone git repository
@@ -15,7 +16,7 @@
   register: unclutter_git
 
 - name: Build unclutter
-  command: make clean unclutter
+  command: make
   args:
     chdir: '/home/{{ansible_user_id}}/Projects/apps/unclutter'
   when: unclutter_git.changed
