@@ -9,8 +9,6 @@ There are two parts to my personal dotfiles repository.
 
 ## Components
 * __bin__/: Anything in `bin/` will get added to your `$PATH` and will be available anywhere
-* __topic/\*.symlink__: Any files ending in `*.symlink` get symlinked into your `$HOME`. This is so you can keep all of those versioned in your dotfiles but still keep those autoloaded files in your home directory. These get symlinked in when you run `script/bootstrap`.
-* __topic/\*.zsh__: Any files ending in `.zsh` get loaded into your environment.
 * __playbook__: Ansible playbook to install applications and change system settings. The playbook is broken into different roles based on different use cases for your machine. Check out `playbook/roles`for all the different roles included. To run the playbook run `playbook/bootstrap`
 
 ## Configuration
