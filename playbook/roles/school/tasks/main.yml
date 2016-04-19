@@ -10,5 +10,5 @@
     - texmaker
     - rubber
     - inotify-tools
+    - zathura
   sudo: yes
-
