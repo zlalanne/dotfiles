@@ -8,6 +8,7 @@ rm -rf ~/.zshrc
 # Link dotfiles
 stow -t ~/ atom
 stow -t ~/ bin
+stow -t ~/ compton
 stow -t ~/ git
 stow -t ~/ gtk
 stow -t ~/ i3

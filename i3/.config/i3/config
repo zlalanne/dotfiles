@@ -65,7 +65,7 @@ new_float pixel $border_size
 ###############################################################################
 
 # X compositor
-exec --no-startup-id compton
+exec --no-startup-id compton --config ~/.config/compton.conf
 
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
