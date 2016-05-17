@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# Setup for a Linux Desktop
+
+# Remove old files
+rm -rf ~/.zshrc
+
+# Link dotfiles
+stow -t ~/ atom
+stow -t ~/ bin
+stow -t ~/ compton
+stow -t ~/ git
+stow -t ~/ gtk
+stow -t ~/ i3
+stow -t ~/ tmux
+stow -t ~/ urxvt
+stow -t ~/ vim
+stow -t ~/ zsh
+
+# Run installation
+cd playbook
+ansible-playbook -i hosts personal_linux_desktop.yml
