@@ -2,6 +2,12 @@
 #
 # Setup for a Linux Desktop
 
+set -o errexit
+set -o nounset
+set -o pipefail
+
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Remove old files
 rm -rf ~/.zshrc
 
@@ -15,8 +21,9 @@ stow -t ~/ i3
 stow -t ~/ tmux
 stow -t ~/ urxvt
 stow -t ~/ vim
+stow -t ~/ zathura
 stow -t ~/ zsh
 
 # Run installation
-cd playbook
+cd ${__dir}/../playbook
 ansible-playbook -i hosts personal_linux_desktop.yml
