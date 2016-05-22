@@ -34,10 +34,10 @@
     chdir: '/home/{{ansible_user_id}}/Projects/apps/i3-gaps'
   when: i3gaps_git.changed
 
-- name: Install i3blocks
+- name: Install i3gaps
   command: make install
   args:
     chdir: '/home/{{ansible_user_id}}/Projects/apps/i3-gaps'
   become: yes
-  when: i3gaps_git.changed or i3apt.changed
+  when: i3gaps_git.changed
 

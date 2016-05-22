@@ -20,3 +20,4 @@
 - include: i3gaps.yml
 - include: rofi.yml
 - include: unclutter.yml
+- include: pa-applet.yml
