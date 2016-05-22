@@ -2,8 +2,12 @@
 # Variables for Linux Laptop installation
 
 change_shell: True
+configure_login_manager: True
 
 # Hardware configuration
 install_logitech_c920: yes
 lenovo: no
 hidpi: no
+
+screenlayout: personal_linux_desktop.sh
+

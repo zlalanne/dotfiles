@@ -15,7 +15,7 @@
     name={{item}}
     state=latest
   with_items:
-    - vim
+    - vim-gtk
     - zsh
     - tmux
     - htop
@@ -101,3 +101,24 @@
   become: yes
   when: change_shell
 
+- name: Ensure lightdm config folder is present
+  file:
+    path=/etc/lightdm/lightdm.conf.d
+    state=directory
+  become: yes
+  when: configure_login_manager
+
+- name: Copy screenlayout to config directory
+  copy:
+    src=screenlayouts/{{ screenlayout }}
+    dest=/etc/lightdm/lightdm.conf.d/{{ screenlayout }}
+    mode=0700
+  become: yes
+  when: configure_login_manager
+
+- name: Copy lightdm config to directory
+  template:
+    src=50-xrandrconfig.conf.j2
+    dest=/etc/lightdm/lightdm.conf.d/50-xrandrconfig.conf
+  become: yes
+  when: configure_login_manager
