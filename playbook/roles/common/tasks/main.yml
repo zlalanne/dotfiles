@@ -8,7 +8,6 @@
     update_cache=yes
   with_items:
     - ppa:git-core/ppa
-    - ppa:pi-rho/dev
   become: yes
 
 - name: Install packages
