@@ -2,4 +2,5 @@
 
 - include: fonts.yml
 - include: apps.yml
+- include: numix.yml
 - include: gtk.yml
