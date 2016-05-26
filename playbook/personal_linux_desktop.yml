@@ -8,5 +8,7 @@
   roles:
     - common
     - i3
+    - school
+    - hardware
     - dev
     - personal

@@ -3,16 +3,16 @@
 
 - name: Add PPAs needed for logitec webcam
   apt_repository:
-    repo={{item}}
+    repo={{ item }}
+    update_cache=yes
   with_items:
     - 'ppa:pj-assis/testing'
-  sudo: yes
+  become: yes
 
 - name: Install needed packages
   apt:
-    name={{item}}
-    state=latest
+    name={{ item }}
   with_items:
     - guvcview
     - cheese
-  sudo: yes
+  become: yes
