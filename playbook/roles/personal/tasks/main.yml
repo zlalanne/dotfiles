@@ -8,7 +8,6 @@
     update_cache=yes
   with_items:
     - 'ppa:inkscape.dev/stable'
-    - 'ppa:gwendal-lebihan-dev/hexchat-stable'
     - 'ppa:libreoffice/ppa'
     - 'ppa:x2go/stable'
     - 'ppa:mjblenner/ppa-hal'
@@ -25,7 +24,6 @@
     - inkscape
     - gimp
     - xtightvncviewer
-    - hexchat
     - gparted
     - unetbootin
     - x2goclient
@@ -40,3 +38,4 @@
 
 # Install dropbox
 - include: dropbox.yml
+  when: install_file_sharing_apps

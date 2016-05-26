@@ -4,25 +4,25 @@
   apt_key:
     keyserver=hkp://keyserver.ubuntu.com:80
     id=94558F59
-  sudo: yes
+  become: yes
 
 - name: Add Spotify repo key 2
   apt_key:
     keyserver=hkp://keyserver.ubuntu.com:80
     id=D2C19886
-  sudo: yes
+  become: yes
 
 - name: Install Spotify - add to spotify.list
   lineinfile:
     dest=/etc/apt/sources.list.d/spotify.list
     line="deb http://repository.spotify.com stable non-free"
     create=yes
-  sudo: yes
+  become: yes
 
 - name: Install Spotify
   apt:
     name=spotify-client
     state=latest
     update_cache=yes
-  sudo: yes
+  become: yes
   ignore_errors: yes
