@@ -7,14 +7,14 @@
 
 - name: Add VirtualBox Repo
   apt_repository:
-    repo='deb http://download.virtualbox.org/virtualbox/debian {{ubuntu_codename}} contrib'
+    repo='deb http://download.virtualbox.org/virtualbox/debian {{ ubuntu_codename }} contrib'
     state=present
     update_cache=yes
   sudo: yes
 
 - name: Install VirtualBox
   apt:
-    name=virtualbox-{{virtualbox_version}}
+    name=virtualbox-{{ virtualbox_version }}
     state=latest
   sudo: yes
 
