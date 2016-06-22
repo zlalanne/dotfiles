@@ -32,12 +32,16 @@ set $mod Mod4
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
 set $workspace8 "8: "
 set $workspace9 "9: "
 set $workspace10 "10: "
 
 set $border_size 3
-set $gaps_size 10
+set $gaps_size 5
 
 set $dpi 180
 
@@ -76,21 +80,19 @@ exec_always --no-startup-id dunst -conf ~/.dunstrc
 # Network manager applet
 exec nm-applet
 
+# Volume applet
+exec pa-applet
+
 # Automount USB drives
 exec_always --no-startup-id udiskie --automount --notify --smart-tray
 
 # Hide mouse when not used
 exec_always --no-startup-id unclutter
 
-# Monlitor setup
-exec_always --no-startup-id xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off --dpi $dpi
+exec --no-startup-id dropbox start
 
-# Google Hangouts
-exec --no-startup-id google-chrome --user-data-dir=$HOME/.config/google-chrome --profile-directory=Default --app-id=knipolnnllmklapflnccelgolnpehhpl
-# Todoist
-exec --no-startup-id google-chrome --user-data-dir=$HOME/.config/google-chrome --profile-directory=Default --app-id=bgjohebimpjdhhocbknplfelpmdhifhd
-exec i3-msg '[title="Hangouts"] focus'
-exec i3-msg '[title="Todoist"] focus'
+exec --no-startup-id /usr/bin/google-chrome-stable --app=https://todoist.com
+exec --no-startup-id /usr/bin/google-chrome-stable --app=https://hangouts.google.com
 
 ### Bindings
 ###############################################################################
@@ -102,10 +104,10 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # Start rofi (as program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -opacity 92 -lines 5 -padding 100 -fuzzy -bg "$base03" -bc "$green" -bw 4 -hlbg "$base03" -fg "$base3" -font "System San Francisco Display 24" -hlfg "$magenta" -eh 1.2 -dmenu -p "run:"'
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -opacity 92 -lines 5 -padding 100 -fuzzy -bg "$base03" -bc "$green" -bw 4 -hlbg "$base03" -fg "$base3" -font "System San Francisco Display 14" -hlfg "$magenta" -eh 1.2 -dmenu -p "run:"'
 
 # Start rofi (as window selector)
-bindsym $mod+Tab exec --no-startup-id rofi -opacity 92 -lines 5 -padding 100 -fuzzy -bg "$base03" -bc "$green" -bw 4 -hlbg "$base03" -fg "$base3" -font "System San Francisco Display 24" -hlfg "$magenta" -eh 1.2 -show window
+bindsym $mod+Tab exec --no-startup-id rofi -opacity 92 -lines 5 -padding 100 -fuzzy -bg "$base03" -bc "$green" -bw 4 -hlbg "$base03" -fg "$base3" -font "System San Francisco Display 14" -hlfg "$magenta" -eh 1.2 -show window
 
 # Change focus
 bindsym $mod+h focus left
@@ -256,7 +258,7 @@ bar {
     position bottom
     strip_workspace_numbers yes
     separator_symbol " "
-    height 40
+    height 25
     tray_output primary
     colors {
       separator  $base00
@@ -276,8 +278,18 @@ bar {
 # Assign Workspaces
 for_window [title="Hangouts"] move workspace $workspace9
 for_window [title="Todoist"] move workspace $workspace8
-for_window [title="Sunrise Calendar"] move workspace $workspace8
 for_window [title="PocketCaster"] move workspace $workspace10
 assign [class="Firefox"] $workspace1
 assign [class="Spotify"] $workspace10
+
+# Workspace Monitor Config
+workspace $workspace1 output DVI-1
+workspace $workspace2 output DVI-1
+workspace $workspace3 output DVI-1
+workspace $workspace4 output DVI-1
+workspace $workspace5 output DVI-1
+workspace $workspace6 output DVI-1
+workspace $workspace7 output DVI-0
+workspace $workspace8 output DVI-0
+workspace $workspace9 output DVI-0
 
