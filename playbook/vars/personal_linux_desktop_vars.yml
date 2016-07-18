@@ -8,7 +8,7 @@ install_file_sharing_apps: True
 # Hardware configuration
 install_logitech_c920: yes
 lenovo: no
-hidpi: no
+hidpi: yes
 
 screenlayout: personal_linux_desktop.sh
 
