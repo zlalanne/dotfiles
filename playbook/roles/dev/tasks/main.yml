@@ -27,14 +27,7 @@
    - libxml2-utils
    - protobuf-compiler
    - meld
-  become: yes
-
-- name: Install python applications
-  pip:
-    name={{item}}
-    state=latest
-  with_items:
-    - bashate
+   - shellcheck
   become: yes
 
 - name: Install ruby applications
