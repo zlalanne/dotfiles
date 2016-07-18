@@ -25,5 +25,5 @@ stow -t ~/ zathura
 stow -t ~/ zsh
 
 # Run installation
-cd ${__dir}/../playbook
+cd "${__dir}/../playbook"
 ansible-playbook -i hosts personal_linux_desktop.yml
