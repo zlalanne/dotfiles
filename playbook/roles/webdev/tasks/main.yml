@@ -10,7 +10,7 @@
     - npm
     - firefox
     - sqlite3
-  sudo: yes
+  become: yes
 
 - name: Install global NPM modules
   npm:
@@ -26,7 +26,7 @@
     - jshint
     - jsonlint
     - csslint
-  sudo: yes
+  become: yes
 
 - name: Mapping nodejs to node
   file:
@@ -36,7 +36,7 @@
     mode=0755
     owner=root
     group=root
-  sudo: yes
+  become: yes
 
 # Install Virtualbox
 - include: virtualbox.yml

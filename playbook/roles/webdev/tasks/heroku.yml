@@ -1,21 +1,21 @@
 ---
 # Install heroku toolbelt dependencies
 
+- name: Add heroku repo key
+  apt_key:
+    url='https://toolbelt.heroku.com/apt/release.key'
+  become: yes
+
 - name: Add heroku toolbelt repository
   apt_repository:
     repo='deb http://toolbelt.heroku.com/ubuntu ./'
     update_cache=yes
-  sudo: yes
-
-- name: Add heroku repo key
-  apt_key:
-    url='https://toolbelt.heroku.com/apt/release.key'
-  sudo: yes
+  become: yes
 
 - name: Install heroku toolbelt
   apt:
     name=heroku-toolbelt
     state=latest
     update_cache=yes
-  sudo: yes
+  become: yes
 
