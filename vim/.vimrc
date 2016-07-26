@@ -26,16 +26,31 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'elzr/vim-json'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'kien/ctrlp.vim'
+
+" Ending Vundle
+call vundle#end()
+filetype plugin indent on
 
 let mapleader=" "
 
 " Tab Settings
 set smartindent
+set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
-autocmd FileType html setlocal ts=2 sts=2 sw=2
+set textwidth=79
+set fileformat=unix
+set encoding=utf-8
+autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+let python_highlight_all = 1
 
 " Theme
 set t_Co=256
@@ -44,13 +59,26 @@ set background=dark
 silent! colorscheme solarized
 let g:solarized_termcolors=256
 set colorcolumn=80
-
+call togglebg#map("<F5>")
 let g:airline_powerline_fonts = 1
 
 " Highlight current line
 set cursorline
 " Put line numbers
 set number
+
+" Movement with splits
+set splitbelow
+set splitright
+noremap <C-J> <C-W><C-J>
+noremap <C-K> <C-W><C-K>
+noremap <C-L> <C-W><C-L>
+noremap <C-H> <C-W><C-H>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+let g:SimpylFold_docstring_preview = 1
 
 " Remove trailing spaces
 autocmd BufWritePre *.py :%s/\s\+$//e
@@ -71,8 +99,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" YouCompleteMe settings
+let g:ycm_autoclose_preview_window_after_completion = 1
+map <leader>g :YcmCompleter GoTo<CR>
+
 " ansible-vim settings
 let g:ansible_attribute_highlight = "ab"
 let g:ansible_name_highlight = "b"
 
-filetype indent plugin on
+" NerdTree settings
+let NERDTreeIgnore=['\.pyc$', '\~$']
+noremap <F4> :NERDTreeToggle<CR>
