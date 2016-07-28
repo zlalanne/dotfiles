@@ -26,6 +26,7 @@
     - python-dev
     - xclip
     - ranger
+    - highlight
     - dos2unix
   become: yes
 

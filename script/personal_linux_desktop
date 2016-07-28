@@ -21,6 +21,7 @@ rm -f ~/.gitignore
 ln -s "${__dir}/../git/.gitignore" ~/.gitignore
 stow -t ~/ gtk
 stow -t ~/ i3
+stow -t ~/ ranger
 stow -t ~/ tmux
 stow -t ~/ urxvt
 stow -t ~/ vim
