@@ -31,6 +31,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'rust-lang/rust.vim'
 
 " Ending Vundle
 call vundle#end()
