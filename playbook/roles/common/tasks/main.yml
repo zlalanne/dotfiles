@@ -28,6 +28,7 @@
     - ranger
     - highlight
     - dos2unix
+    - curl
   become: yes
 
 - name: Installing vundle
