@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+#
+# Print out temperatures of all connected hard drives
 
 sudo hddtemp /dev/sd?
