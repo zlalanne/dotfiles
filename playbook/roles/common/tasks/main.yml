@@ -125,3 +125,14 @@
     dest=/etc/lightdm/lightdm.conf.d/50-xrandrconfig.conf
   become: yes
   when: configure_login_manager
+
+- name: Download latest fzf
+  git:
+    repo=https://github.com/junegunn/fzf.git
+    depth=1
+    dest=~/.fzf
+
+- name: Run fzf install script
+  command: ./install
+  args:
+    chdir: /home/{{ ansible_user_id }}/.fzf

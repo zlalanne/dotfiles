@@ -30,3 +30,5 @@ unset config_files
 export PATH=$HOME/.bin:/usr/local/bin:$PATH
 export EDITOR='vim'
 
+# Fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
