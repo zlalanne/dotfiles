@@ -29,6 +29,7 @@
     - highlight
     - dos2unix
     - curl
+    - nfs-common
   become: yes
 
 - name: Installing vundle
