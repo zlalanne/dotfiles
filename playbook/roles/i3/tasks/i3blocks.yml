@@ -21,3 +21,7 @@
   become: yes
   when: i3blocks_git.changed
 
+- name: Install sysstat
+  apt:
+    name=sysstat
+  become: yes
