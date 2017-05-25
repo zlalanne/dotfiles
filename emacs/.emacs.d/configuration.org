@@ -1,0 +1,275 @@
+#+TITLE: Emacs configuration
+
+Most of this is taken from [[https://github.com/hrs/dotfiles/blob/master/emacs.d/configuration.org][hrs dotfiles]].
+
+* Use sensible-defaults.el
+
+Use [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] for some basic settings.
+
+#+BEGIN_SRC emacs-lisp
+  (load-file (concat user-emacs-directory (convert-standard-filename "sensible-defaults.el")))
+  (sensible-defaults/use-all-settings)
+  (sensible-defaults/use-all-keybindings)
+  (sensible-defaults/backup-to-temp-directory)
+#+END_SRC
+
+* Require package.el
+
+
+#+BEGIN_SRC emacs-lisp
+  (require 'package)
+#+END_SRC
+
+* Package Management
+
+Default package repositories have strict licensing requirements. Add additional repos.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+  (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+#+END_SRC
+
+Taken from [[https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html][Aaron Bieber's blog]].
+
+#+BEGIN_SRC emacs-lisp
+  (setq package-enable-at-startup nil)
+  (package-initialize)
+
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+#+END_SRC
+
+* Utility Functions
+
+Define a big ol' bunch of handy utility functions.
+
+#+BEGIN_SRC emacs-lisp
+  (defun zl/de-unicode ()
+    "Tidy up a buffer by replacing all special Unicode characters
+       (smart quotes, etc.) with their more sane cousins"
+    (interactive)
+    (let ((unicode-map '(("[\u2018\|\u2019\|\u201A\|\uFFFD]" . "'")
+                         ("[\u201c\|\u201d\|\u201e]" . "\"")
+                         ("\u2013" . "--")
+                         ("\u2014" . "---")
+                         ("\u2026" . "...")
+                         ("\u00A9" . "(c)")
+                         ("\u00AE" . "(r)")
+                         ("\u2122" . "TM")
+                         ("[\u02DC\|\u00A0]" . " "))))
+      (save-excursion
+        (loop for (key . value) in unicode-map
+              do
+              (goto-char (point-min))
+              (replace-regexp key value)))))
+
+  (defun zl/add-auto-mode (mode &rest patterns)
+    "Add entries to `auto-mode-alist' to use `MODE' for all given file `PATTERNS'."
+    (dolist (pattern patterns)
+      (add-to-list 'auto-mode-alist (cons pattern mode))))
+#+END_SRC
+
+* EVIL
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+    :ensure t)
+  (require 'evil)
+  (evil-mode 1)
+#+END_SRC
+
+* UI Preferences
+** Disable window chrome
+
+I don't usually use the menu or scroll bar, and they take up useful space.
+
+#+BEGIN_SRC emacs-lisp
+  (tool-bar-mode 0)
+  (menu-bar-mode 0)
+  (when window-system
+    (scroll-bar-mode -1))
+#+END_SRC
+
+** Color Scheme
+
+#+BEGIN_SRC emacs-lisp
+  (use-package solarized-theme
+    :ensure t)
+  (setq solarized-use-variable-pitch nil)
+  (setq solarized-height-plus-1 1.0)
+  (setq solarized-height-plus-2 1.0)
+  (setq solarized-height-plus-3 1.0)
+  (setq solarized-height-plus-4 1.0)
+  (setq solarized-high-contrast-mode-line t)
+  (load-theme 'solarized-dark t)
+#+END_SRC
+
+** Font
+
+I'm partial to Inconsolata.
+
+The standard =text-scale-= functions just resize the text in the current buffer;
+I'd generally like to resize the text in /every/ buffer, and I usually want to
+change the size of the modeline, too (this is especially helpful when
+presenting). These functions and bindings let me resize everything all together!
+
+#+BEGIN_SRC emacs-lisp
+  (setq zl/default-font "Inconsolata")
+  (setq zl/default-font-size 14)
+  (setq zl/current-font-size zl/default-font-size)
+
+  (setq zl/font-change-increment 1.1)
+
+  (defun zl/set-font-size ()
+    "Set the font to `zl/default-font' at `zl/current-font-size'."
+    (set-frame-font
+     (concat zl/default-font "-" (number-to-string zl/current-font-size))))
+
+  (defun zl/reset-font-size ()
+    "Change font size back to `zl/default-font-size'."
+    (interactive)
+    (setq zl/current-font-size zl/default-font-size)
+    (zl/set-font-size))
+
+  (defun zl/increase-font-size ()
+    "Increase current font size by a factor of `zl/font-change-increment'."
+    (interactive)
+    (setq zl/current-font-size
+          (ceiling (* zl/current-font-size zl/font-change-increment)))
+    (zl/set-font-size))
+
+  (defun zl/decrease-font-size ()
+    "Decrease current font size by a factor of `zl/font-change-increment', down to a minimum size of 1."
+    (interactive)
+    (setq zl/current-font-size
+          (max 1
+               (floor (/ zl/current-font-size zl/font-change-increment))))
+    (zl/set-font-size))
+
+  (define-key global-map (kbd "C-)") 'zl/reset-font-size)
+  (define-key global-map (kbd "C-+") 'zl/increase-font-size)
+  (define-key global-map (kbd "C-=") 'zl/increase-font-size)
+  (define-key global-map (kbd "C-_") 'zl/decrease-font-size)
+  (define-key global-map (kbd "C--") 'zl/decrease-font-size)
+
+  (zl/reset-font-size)
+#+END_SRC
+
+** Highlight Current Line
+
+#+BEGIN_SRC emacs-lisp
+  (global-hl-line-mode)
+#+END_SRC
+
+** Show Line Numbers
+
+#+BEGIN_SRC emacs-lisp
+  (global-linum-mode t)
+#+END_SRC
+
+** Highlight uncommitted changes
+
+Use the =diff-hl= package to highlight changed-and-uncommitted lines when
+programming.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'diff-hl)
+
+  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+#+END_SRC
+
+** Disable Audible Bell
+
+#+BEGIN_SRC emacs-lisp
+  (setq ring-bell-function 'ignore)
+#+END_SRC
+
+** Highlight trailing whitespace
+
+Highlight any trailing whitespace. Set the background color to the "Solarized Dark" orange
+
+#+BEGIN_SRC emacs-lisp
+  (set-face-background 'trailing-whitespace "#cb4b16")
+  (setq-default show-trailing-whitespace t)
+#+END_SRC
+
+* Helm
+
+#+BEGIN_SRC emacs-lisp
+  (use-package helm
+    :ensure t)
+  (require 'helm)
+#+END_SRC
+
+* Editing
+
+** Spell Check
+
+I'm a terrible speller... turn on spell check for markdown, $\LaTeX$ and org-mode.
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-mode-hook 'turn-on-flyspell)
+  (add-hook 'gfm-mode-hook 'turn-on-flyspell)
+  (add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
+#+END_SRC
+
+** Markdown
+
+Associate =.md= files with GitHub-flavored Markdown.
+
+#+BEGIN_SRC emacs-lisp
+  (zl/add-auto-mode 'gfm-mode "\\.md$")
+#+END_SRC
+
+* Org-mode
+** Display Preferences
+
+I like to see an outline of pretty bullets instead of a list of asterisks.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :ensure t)
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook
+    (lambda ()
+        (org-bullets-mode t)))
+#+END_SRC
+
+Use syntax highlighting in source blocks while editing.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-fontify-natively t)
+#+END_SRC
+
+Make TAB act as if it were issued in a buffer of the language's major mode.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-tab-acts-natively t)
+#+END_SRC
+
+When editing a code snippet, use the current window rather than popping open a
+new one (which shows the same information).
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-src-window-setup 'current-window)
+#+END_SRC
+
+** Task Management
+
+I prefer to have some additional custom states for tasks.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-todo-keywords
+    '((sequence "TODO" "WAITING" "|" "DONE" "DELEGATED")))
+#+END_SRC
+
+** Exporting
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ox-twbs
+    :ensure t)
+  (require 'ox-twbs)
+#+END_SRC
