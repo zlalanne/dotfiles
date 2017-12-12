@@ -31,4 +31,7 @@ export PATH=$HOME/.bin:/usr/local/bin:$PATH
 export EDITOR='vim'
 
 # Fuzzy finder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+    source /usr/share/fzf/key-bindings.zsh
+    source /usr/share/fzf/completion.zsh
+fi
