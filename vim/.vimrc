@@ -31,6 +31,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'google/vim-ft-bzl'
 
 " Ending Vundle
 call vundle#end()

@@ -41,7 +41,6 @@ set $workspace9 "9: "
 set $workspace10 "10: "
 
 set $border_size 3
-set $gaps_size 5
 
 set $dpi 180
 
@@ -51,10 +50,6 @@ set $dpi 180
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:System San Francisco Display 10
-
-# Gaps for i3-gaps
-gaps inner $gaps_size
-gaps outer $gaps_size
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -71,11 +66,17 @@ new_float pixel $border_size
 # X compositor
 exec --no-startup-id compton --config ~/.config/compton.conf
 
+# Redshift
+exec --no-startup-id redshift-gtk -l 32.776487:-96.800049 -t 5700:3600 -g 0.8 -m randr
+
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale ~/.wallpaper.png
 
 # Notifications
 exec_always --no-startup-id dunst -conf ~/.dunstrc
+
+# Seafile
+exec --no-startup-id seafile-applet
 
 # Network manager applet
 exec nm-applet
@@ -93,9 +94,6 @@ exec_always --no-startup-id unclutter
 exec_always --no-startup-id numlockx
 
 exec --no-startup-id dropbox start
-
-exec --no-startup-id /usr/bin/google-chrome-stable --app=https://todoist.com
-exec --no-startup-id /usr/bin/google-chrome-stable --app=https://hangouts.google.com
 
 ### Bindings
 ###############################################################################
@@ -221,7 +219,7 @@ bindsym $mod+r mode "resize"
 
 set $mode_system system: lock(l), logout(e), suspend(s), hibernate(h), reboot(r), shutdown(Shift+s)
 mode "$mode_system" {
-      bindsym l exec --no-startup-id i3lock, mode "default"
+      bindsym l exec --no-startup-id i3lock-fancy --pixelate --greyscale, mode "default"
       bindsym e exec --no-startup-id i3-msg exit, mode "default"
       bindsym s exec --no-startup-id i3lock && systemctl suspend, mode "default"
       bindsym h exec --no-startup-id i3lock && systemctl hibernate, mode "default"
@@ -261,7 +259,6 @@ bar {
     position bottom
     strip_workspace_numbers yes
     separator_symbol " "
-    height 25
     tray_output primary
     colors {
       separator  $base00
@@ -296,4 +293,3 @@ workspace $workspace7 output DVI-0
 workspace $workspace8 output DVI-0
 workspace $workspace9 output DVI-0
 workspace $workspace10 output DVI-0
-

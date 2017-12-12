@@ -20,3 +20,5 @@
         prompt = false
 [help]
         autocorrect = 1
+[magit]
+	hideCampaign = true
