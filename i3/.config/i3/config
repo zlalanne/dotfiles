@@ -41,9 +41,9 @@ set $workspace9 "9: "
 set $workspace10 "10: "
 
 set $border_size 3
-set $gaps_size 5
+# set $gaps_size 5
 
-set $dpi 180
+#set $dpi 180
 
 ### General Settings
 ###############################################################################
@@ -53,8 +53,8 @@ set $dpi 180
 font pango:System San Francisco Display 10
 
 # Gaps for i3-gaps
-gaps inner $gaps_size
-gaps outer $gaps_size
+#gaps inner $gaps_size
+#gaps outer $gaps_size
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -93,8 +93,7 @@ exec_always --no-startup-id unclutter
 exec_always --no-startup-id numlockx
 
 exec --no-startup-id dropbox start
-
-exec --no-startup-id /usr/bin/google-chrome-stable --app=https://todoist.com
+exec --no-startup-id seafile-applet
 exec --no-startup-id /usr/bin/google-chrome-stable --app=https://hangouts.google.com
 
 ### Bindings
@@ -107,10 +106,10 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # Start rofi (as program launcher)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -opacity 92 -lines 5 -padding 100 -fuzzy -bg "$base03" -bc "$green" -bw 4 -hlbg "$base03" -fg "$base3" -font "System San Francisco Display 14" -hlfg "$magenta" -eh 1.2 -dmenu -p "run:"'
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -matching fuzzy -i -dmenu -p "run:"'
 
 # Start rofi (as window selector)
-bindsym $mod+Tab exec --no-startup-id rofi -opacity 92 -lines 5 -padding 100 -fuzzy -bg "$base03" -bc "$green" -bw 4 -hlbg "$base03" -fg "$base3" -font "System San Francisco Display 14" -hlfg "$magenta" -eh 1.2 -show window
+bindsym $mod+Tab exec --no-startup-id rofi -matching fuzzy -i -show window
 
 # Change focus
 bindsym $mod+h focus left
@@ -186,7 +185,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Lock screen
-bindsym Control+Mod1+l exec --no-startup-id i3lock
+bindsym Control+Mod1+l exec --no-startup-id i3lock-fancy
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
@@ -198,8 +197,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Screenshots
- bindsym --release Shift+Print exec --no-startup-id scrot -s ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
- bindsym --release Print exec --no-startup-id scrot ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
+bindsym --release Shift+Print exec --no-startup-id scrot -s ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
+bindsym --release Print exec --no-startup-id scrot ~/Pictures/Screenshots/%y-%b-%d_%H%M%S.png
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
@@ -221,10 +220,10 @@ bindsym $mod+r mode "resize"
 
 set $mode_system system: lock(l), logout(e), suspend(s), hibernate(h), reboot(r), shutdown(Shift+s)
 mode "$mode_system" {
-      bindsym l exec --no-startup-id i3lock, mode "default"
+      bindsym l exec --no-startup-id i3lock-fancy, mode "default"
       bindsym e exec --no-startup-id i3-msg exit, mode "default"
-      bindsym s exec --no-startup-id i3lock && systemctl suspend, mode "default"
-      bindsym h exec --no-startup-id i3lock && systemctl hibernate, mode "default"
+      bindsym s exec --no-startup-id i3lock-fancy && systemctl suspend, mode "default"
+      bindsym h exec --no-startup-id i3lock-fancy && systemctl hibernate, mode "default"
       bindsym r exec --no-startup-id systemctl reboot, mode "default"
       bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -256,12 +255,11 @@ client.urgent           $magenta $magenta   $base3  $red
 
 # Bar
 bar {
-    font pango: System San Francisco Display, Font Awesome 10
+    font pango: System San Francisco Display, Font Awesome 11
     status_command i3blocks
     position bottom
     strip_workspace_numbers yes
     separator_symbol " "
-    height 25
     tray_output primary
     colors {
       separator  $base00
