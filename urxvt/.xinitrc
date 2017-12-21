@@ -1,0 +1,12 @@
+#!/bin/bash
+
+common_resources=${HOME}/.Xresources_common
+host_resources=${HOME}/.Xresources_$(hostname)
+
+if [ -f $common_resources ]; then
+    xrdb -merge $common_resources
+fi
+
+if [ -f $host_resources ]; then
+    xrdb -merge $host_resources
+fi
