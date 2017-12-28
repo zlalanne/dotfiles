@@ -1,0 +1,8 @@
+! Specialized settings for Thinkpad Laptop
+
+Xcursor.size:             16
+URxvt.font:               xft:Inconsolata\ for\ Powerline:pixelsize=24
+URxvt.boldFont:           xft:Inconsolata\ for\ Powerline:pixelsize=24:bold
+URxvt.italicFont:         xft:Inconsolata\ for\ Powerline:pixelsize=24:italic
+URxvt.boldItalicFont:     xft:Inconsolata\ for\ Powerline:pixelsize=24:bold:italic
+
