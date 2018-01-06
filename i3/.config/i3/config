@@ -84,6 +84,9 @@ exec nm-applet
 # Volume applet
 exec pa-applet
 
+# Logitech applet
+exec solaar
+
 # Automount USB drives
 exec_always --no-startup-id udiskie --automount --notify --smart-tray
 
