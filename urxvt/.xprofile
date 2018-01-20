@@ -3,6 +3,9 @@
 common_resources=${HOME}/.Xresources_common
 host_resources=${HOME}/.Xresources_$(hostname)
 
+# Turn off the beep
+xset b off
+
 if [ -f $common_resources ]; then
     xrdb -merge $common_resources
 fi
