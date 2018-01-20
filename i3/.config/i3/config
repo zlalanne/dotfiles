@@ -286,14 +286,17 @@ for_window [title="PocketCaster"] move workspace $workspace10
 assign [class="Firefox"] $workspace1
 assign [class="Spotify"] $workspace10
 
+set_from_resource $monitorPrimary i3wm.Monitor.Primary DP-1
+set_from_resource $monitorSecondary i3wm.Monitor.Secondary DVI-I-1
+
 # Workspace Monitor Config
-workspace $workspace1 output DVI-1
-workspace $workspace2 output DVI-1
-workspace $workspace3 output DVI-1
-workspace $workspace4 output DVI-1
-workspace $workspace5 output DVI-1
-workspace $workspace6 output DVI-1
-workspace $workspace7 output DVI-0
-workspace $workspace8 output DVI-0
-workspace $workspace9 output DVI-0
-workspace $workspace10 output DVI-0
+workspace $workspace1 output $monitorPrimary
+workspace $workspace2 output $monitorPrimary
+workspace $workspace3 output $monitorPrimary
+workspace $workspace4 output $monitorPrimary
+workspace $workspace5 output $monitorPrimary
+workspace $workspace6 output $monitorPrimary
+workspace $workspace7 output $monitorSecondary
+workspace $workspace8 output $monitorSecondary
+workspace $workspace9 output $monitorSecondary
+workspace $workspace10 output $monitorSecondary
