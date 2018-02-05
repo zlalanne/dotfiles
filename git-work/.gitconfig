@@ -20,3 +20,8 @@
         prompt = false
 [help]
         autocorrect = 1
+[credential]
+	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+
+[url "https://github.com/"]
+	insteadOf = git://github.com/
