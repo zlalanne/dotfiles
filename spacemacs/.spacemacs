@@ -38,7 +38,6 @@ This function should only modify configuration layer settings."
      helm
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
-                      completion-enable-snippets-in-popup t
                       auto-completion-enable-help-tooltip t)
      better-defaults
      spell-checking
@@ -55,6 +54,9 @@ This function should only modify configuration layer settings."
      version-control
      git
      ;; Programming/Markup Languages
+     ruby
+     graphviz
+     perl5
      emacs-lisp
      csv
      javascript
@@ -93,6 +95,14 @@ This function should only modify configuration layer settings."
 This function is called at the very beginning of Spacemacs startup,
 before layer configuration.
 It should only modify the values of Spacemacs settings."
+
+  ;; Use offline mirror of ELPA if it's available
+  (if (file-exists-p "/mnt/data/elpa-mirror")
+      (setq configuration-layer-elpa-archives
+            `(("melpa" . "/mnt/data/elpa-mirror/melpa/")
+              ("org"   . "/mnt/data/elpa-mirror/org/")
+              ("gnu"   . "/mnt/data/elpa-mirror/gnu/"))))
+
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -156,6 +166,16 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
                          spacemacs-light)
+
+   ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
+   ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
+   ;; are spaceline themes. `vanilla' is default Emacs mode-line. `custom' is a
+   ;; user defined themes, refer to the DOCUMENTATION.org for more info on how
+   ;; to create your own spaceline theme. Value can be a symbol or list with\
+   ;; additional properties.
+   ;; (default '(spacemacs :separator wave :separator-scale 1.5))
+   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
@@ -355,17 +375,26 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
   (cond ((string= system-name "zack-desktop")
-         (setq-default dotspacemacs-default-font '("Inconsolata for Powerline"
+         (setq-default dotspacemacs-default-font '("Inconsolata"
                                                    :size 16
                                                    :weight normal
                                                    :width normal
-                                                   :powerline-scale 1.2)))
+                                                   :powerline-scale 1.2))
+         )
         ((string= system-name "thinkpad")
-         (setq-default dotspacemacs-default-font '("Inconsolata for Powerline"
+         (setq-default dotspacemacs-default-font '("Inconsolata"
                                                    :size 24
                                                    :weight normal
                                                    :width normal
                                                    :powerline-scale 1.2))
+
+         )
+        ((string= system-name "uda0273326")
+         (setq-default dotspacemacs-default-font '("Inconsolata"
+                                                   :size 18
+                                                   :weight normal
+                                                   :width normal
+                                                   :powerline-scale 1.0))
 
          )
    )
@@ -420,6 +449,25 @@ before packages are loaded."
 
   ;; Always follow symlinks
   (setq vc-follow-symlinks nil)
+
+  (with-eval-after-load 'helm
+    ;; Taken From:
+    ;; https://github.com/syl20bnr/spacemacs/issues/7446#issuecomment-415767087
+    (defun helm-persistent-action-display-window (&optional split-onewindow)
+      "Return the window that will be used for persistent action.
+If SPLIT-ONEWINDOW is non-`nil' window is split in persistent action."
+      (with-helm-window
+        (setq helm-persistent-action-display-window
+              (cond ((and (window-live-p helm-persistent-action-display-window)
+                          (not (member helm-persistent-action-display-window
+                                       (get-buffer-window-list helm-buffer))))
+                     helm-persistent-action-display-window)
+                    ((and helm--buffer-in-new-frame-p helm-initial-frame)
+                     (with-selected-frame helm-initial-frame (selected-window)))
+                    (split-onewindow (split-window))
+                    ((get-mru-window))
+                    (t split-window (get-mru-window nil t))))))
+   )
 
   (with-eval-after-load 'org
     ;; org-mode
@@ -513,3 +561,17 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  )
 )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe vagrant-tramp vagrant uuidgen unfill toc-org tagedit stickyfunc-enhance srefactor spaceline powerline solarized-theme smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el paradox spinner ox-twbs ox-gfm orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-plus-contrib org-mime org-download org-bullets open-junk-file neotree mwim multi-term move-text mmm-mode markdown-toc markdown-mode magit-gitflow macrostep lorem-ipsum livid-mode skewer-mode simple-httpd live-py-mode linum-relative link-hint less-css-mode js2-refactor multiple-cursors js2-mode js-doc jinja2-mode insert-shebang indent-guide hydra hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip flycheck pkg-info epl flx-ido flx fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit git-commit ghub let-alist with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump dockerfile-mode docker json-mode tablist magit-popup docker-tramp json-snatcher json-reformat diminish diff-hl define-word cython-mode csv-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company-quickhelp pos-tip company-auctex company-ansible company-anaconda company column-enforce-mode coffee-mode clean-aindent-mode bind-map auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed auctex ansible-doc ansible anaconda-mode pythonic f dash s all-the-icons memoize aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
