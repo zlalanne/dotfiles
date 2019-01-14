@@ -89,6 +89,9 @@ exec solaar
 # Automount USB drives
 exec_always --no-startup-id udiskie --automount --notify --smart-tray
 
+# sudo in GUIs
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 # Hide mouse when not used
 exec_always --no-startup-id unclutter
 
@@ -96,7 +99,7 @@ exec_always --no-startup-id unclutter
 exec_always --no-startup-id numlockx
 
 exec --no-startup-id dropbox start
-exec --no-startup-id /usr/bin/google-chrome-stable --app=https://hangouts.google.com
+exec --no-startup-id /usr/bin/google-chrome-stable --app=https://messages.android.com
 exec --no-startup-id /usr/bin/google-chrome-stable --app=https://todoist.com/app
 
 ### Bindings
@@ -281,7 +284,7 @@ bar {
 ###############################################################################
 
 # Assign Workspaces
-for_window [title="Hangouts"] move workspace $workspace9
+for_window [title="Messages for web"] move workspace $workspace9
 for_window [title="Todoist"] move workspace $workspace8
 for_window [title="PocketCaster"] move workspace $workspace10
 assign [class="Firefox"] $workspace1
