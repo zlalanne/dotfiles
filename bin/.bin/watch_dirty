@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Watch how many dirty blocks still need to be written during a sync
+
+watch grep -e Dirty: -e Writeback: /proc/meminfo
