@@ -9,6 +9,7 @@ Vagrant.configure(2) do |config|
     v.memory = 2048
   end
 
+
   config.vm.synced_folder ".", "/home/vagrant/.dotfiles"
 
   config.vm.provision "shell", inline: <<-SHELL
