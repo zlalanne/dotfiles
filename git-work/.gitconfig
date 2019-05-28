@@ -21,7 +21,7 @@
 [help]
         autocorrect = 1
 [credential]
-	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring
+	helper = kwallet
 
 [url "https://github.com/"]
 	insteadOf = git://github.com/
