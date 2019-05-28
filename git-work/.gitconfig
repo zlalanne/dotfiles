@@ -25,3 +25,5 @@
 
 [url "https://github.com/"]
 	insteadOf = git://github.com/
+[merge]
+	guitool = kdiff3
