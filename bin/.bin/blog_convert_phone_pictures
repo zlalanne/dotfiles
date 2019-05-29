@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+import subprocess
+import json
+import os
+import sys
+
+def main():
+
+    for filename in sys.argv[1:]:
+        json_out = subprocess.check_output(["mediainfo", "--Output=JSON", filename])
+        data = json.loads(json_out)
+
+        orig_file = filename + ".orig"
+        os.rename(filename, orig_file)
+
+        print(data)
+        print(data.keys())
+
+        for track in data["media"]["track"]:
+            if track["@type"] == "Image":
+                if int(track["Width"]) > int(track["Height"]):
+                    subprocess.call(["convert", orig_file, "-resize", "3000x", filename])
+                else:
+                    subprocess.call(["convert", orig_file, "-resize", "x3000", filename])
+
+
+if __name__ == "__main__":
+    main()
