@@ -1,20 +1,13 @@
 ---
 
 sudo: required
-dist: trusty
+dist: bionic
 language: generic
 
 git:
   depth: 10
 
-before_install:
-    - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty universe multiverse"
-    - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates universe multiverse"
-    - sudo add-apt-repository ppa:ansible/ansible --yes
-    - sudo apt-get update --quiet
-
-install:
-    - sudo apt-get install ansible stow --yes
-
 script:
-    - travis_wait ./script/linux_laptop
+    - travis_wait ./bootstrap.sh
+    - travis_wait ./deploy.sh
+    - travis_wait ./bin/.bin/dotfiles_update
