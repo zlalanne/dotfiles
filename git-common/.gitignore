@@ -4,6 +4,7 @@
 
 # Pydev
 *.pyc
+.coverage*
 
 # Webdev
 bower_components
