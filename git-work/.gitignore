@@ -12,3 +12,19 @@ bower_components
 
 # IDEs
 .idea
+
+*.tar.gz
+*.zip
+
+# Ansible
+*.retry
+
+# Bazel
+bazel-*
+*.bzlc
+
+# Emacs
+.dir-locals.el
+
+# Build outputs
+exports
