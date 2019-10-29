@@ -11,5 +11,4 @@ alias setclip='xclip -selection c'
 alias getclip='xclip -selection clipboard -o'
 
 # Files to Edit
-alias i3conf="vim ~/.config/i3/config"
 alias vimrc="vim ~/.vimrc"

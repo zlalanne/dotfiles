@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-#
-# Setup for a my windows Cygwin setup
-
-stow git-work
-stow bin
-

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
-# Install ansible and clone dotfiles. Ready to install machine
+# Install some tools to help install dotfiles. Expects an debian/ubuntu system
 
-sudo add-apt-repository ppa:ansible/ansible
 sudo apt-get update
-sudo apt-get install git ansible python-pycurl stow
+sudo apt-get install -y git rsync stow
 
-git clone https://github.com/zlalanne/dotfiles ~/.dotfiles
+# Setup virtualenv
+sudo apt-get install -y python3-virtualenv virtualenvwrapper

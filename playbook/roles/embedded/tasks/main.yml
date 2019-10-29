@@ -1,6 +1,0 @@
----
-# Tasks for installing Embedded Development applications
-
-- include: energia.yml
-- include: eagle.yml
-- include: kicad.yml

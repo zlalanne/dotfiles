@@ -1,4 +1,0 @@
----
-
-- name: Update fonts
-  command: /usr/bin/fc-cache -f /home/{{ansible_user_id}}/.local/share/fonts

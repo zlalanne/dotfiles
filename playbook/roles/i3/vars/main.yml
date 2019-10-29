@@ -1,5 +1,0 @@
----
-# Variables for i3 role
-
-rofi_version: 0.15.12
-rofi_url: 'https://github.com/DaveDavenport/rofi/releases/download/{{rofi_version}}/rofi-{{rofi_version}}.tar.gz'

@@ -29,8 +29,3 @@ unset config_files
 # User configuration
 export PATH=$HOME/.bin:/usr/local/bin:$HOME/go/bin:$HOME/.local/bin:$PATH
 export EDITOR='vim'
-export MAKEFLAGS='-j4'
-
-# Fuzzy finder
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Reloads the cache of *.desktop files for the application startup menu
+
+set -eu
+
+kbuildsycoca5
