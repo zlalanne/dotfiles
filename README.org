@@ -22,3 +22,4 @@
  * [ ] Better org-mode settings
  * [ ] Better build/test/run support in Bazel Spacemacs layer
  * [ ] Add better printing / clean up =deploy.sh= and =bootstrap.sh= scripts to hide stderr
+ * [X] Move spacemacs layers back to repo? And add them as custom path to .spacemacs?

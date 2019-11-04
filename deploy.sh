@@ -25,7 +25,3 @@ else
     stow ${STOWFLAGS} git
 fi
 ln --symbolic --force ${DOTFILES}/git-common/.gitignore ${HOME}/.gitignore
-
-# Private spacemacs layers
-ln --symbolic --force ${DOTFILES}/spacemacs/bazel ${HOME}/.emacs.d/private
-
