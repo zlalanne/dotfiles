@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
-import subprocess
 import json
 import os
+import subprocess
 import sys
+
 
 def main():
 
@@ -20,9 +21,13 @@ def main():
         for track in data["media"]["track"]:
             if track["@type"] == "Image":
                 if int(track["Width"]) > int(track["Height"]):
-                    subprocess.call(["convert", orig_file, "-resize", "3000x", filename])
+                    subprocess.call(
+                        ["convert", orig_file, "-resize", "3000x", filename]
+                    )
                 else:
-                    subprocess.call(["convert", orig_file, "-resize", "x3000", filename])
+                    subprocess.call(
+                        ["convert", orig_file, "-resize", "x3000", filename]
+                    )
 
 
 if __name__ == "__main__":

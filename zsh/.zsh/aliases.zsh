@@ -1,4 +1,3 @@
-
 # Core utilities alias, most of these are taken from:
 # https://wiki.archlinux.org/index.php/Core_Utilities
 alias grep='grep -n --color=auto --exclude-dir={.bzr,.cvs,.git.hg.svn}'
@@ -12,3 +11,6 @@ alias getclip='xclip -selection clipboard -o'
 
 # Files to Edit
 alias vimrc="vim ~/.vimrc"
+
+# Dotfiles
+alias dotup="dotfiles_update"

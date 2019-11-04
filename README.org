@@ -1,0 +1,24 @@
+#+TITLE: dotfiles
+
+* Description
+
+  My collection of dotfiles. My primary development machines right now run KDE
+  Neon which is based on Ubuntu 18.04. So the =bootstrap.sh= and =deploy.sh=
+  scripts have some dependencies on debian/Ubuntu.
+  
+  Package installation is done in =boostrap.sh=, mostly used to setup tools
+  needed for developing code. The =deploy.sh= script handles symlinking all the
+  dotfiles to their correct destinations.
+  
+  My main editor is Emacs using [[http://spacemacs.org/][Spacemacs]]. My main shell is zsh using [[https://ohmyz.sh/][Oh-My-Zsh]].
+
+* Issues
+
+ * [ ] Always use shellcheck checker in shell-script-mode. bashate seems broken at the moment
+ * [ ] Fix xresources issues with KDE Neon
+ * [ ] Better symbolic link checking in deploy.sh script
+ * [ ] Working travis.ci setup again
+ * [ ] Minimize vimrc to be usable now that I'm on emacs (maybe try to nvim)
+ * [ ] Better org-mode settings
+ * [ ] Better build/test/run support in Bazel Spacemacs layer
+ * [ ] Add better printing / clean up =deploy.sh= and =bootstrap.sh= scripts to hide stderr

@@ -5,11 +5,10 @@
 set -eu
 
 pic=$1
-pic_dir=$(dirname ${pic})
-pic_full_filename=$(basename -- ${pic})
+pic_dir=$(dirname "${pic}")
+pic_full_filename=$(basename -- "${pic}")
 pic_ext="${pic_full_filename##*.}"
 pic_filename="${pic_full_filename%.*}"
 
-mv ${pic} ${pic_dir}/${pic_filename}_orig.${pic_ext}
-convert ${pic_dir}/${pic_filename}_orig.${pic_ext} -resize x500 ${pic_dir}/${pic_filename}.${pic_ext}
-
+mv "${pic}" "${pic_dir}/${pic_filename}_orig.${pic_ext}"
+convert "${pic_dir}/${pic_filename}_orig.${pic_ext}" -resize x500 "${pic_dir}/${pic_filename}.${pic_ext}"
