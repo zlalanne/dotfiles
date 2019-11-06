@@ -7,41 +7,45 @@ set -eu
 declare -r DOTFILES="${HOME}/.dotfiles"
 
 source ${DOTFILES}/lib/dotfiles.sh
+source ${DOTFILES}/lib/print.sh
 
 check_codename
 
 # Setup projects directory
 mkdir -p ${HOME}/Projects
 
-sudo apt-get update
-sudo apt-get install -y git rsync stow
+info "Updating Ubuntu repositories"
+sudo apt-get --quiet update
 
-# Setup languages needed for tools
-sudo apt-get install -y python3-venv python3-virtualenv python3-pip virtualenvwrapper
-python3 -m pip install --user pipx
-sudo apt-get install -y golang-go
-sudo apt-get install -y npm
+info "Installing some basic tools"
+dotfiles_apt git rsync stow
+
+info "Installing languages and language package managers"
+dotfiles_apt python3-venv python3-virtualenv python3-pip virtualenvwrapper
+python3 -m pip --quiet install --user pipx
+dotfiles_apt golang-go
+dotfiles_apt npm
 mkdir -p ${HOME}/.local/npm
 
-# Setup terminal
-sudo apt-get install -y rxvt-unicode
+info "Installing terminal"
+dotfiles_apt rxvt-unicode
 
-# Install python development packages
+info "Installing python development packages"
 pipx install black
 pipx install pylint
 pipx install isort
 pipx install pyls
 
-# Install shell-scripting packages
+info "Installing shell-scripting packages"
 pipx install bashate
-sudo apt-get install -y shellcheck
+dotfiles_apt shellcheck
 
-# Install web/html/css packages
-sudo apt-get install -y node-js-beautify
+info "Installing web development packages"
+dotfiles_apt node-js-beautify
 
-# Install markdown packages
-npm install --prefix ${HOME}/.local/npm --global vmd
-sudo apt-get install -y markdown
+info "Installing markdown packages"
+dotfiles_npm vmd
+dotfiles_apt markdown
 
-# Install bazel packages
+info "Installing Bazel packages"
 go get github.com/bazelbuild/buildtools/buildifier

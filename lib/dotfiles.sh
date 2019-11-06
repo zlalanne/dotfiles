@@ -17,3 +17,11 @@ function at_work() {
         false
     fi
 }
+
+function dotfiles_apt() {
+    sudo apt-get --quiet install --yes "${@}"
+}
+
+function dotfiles_npm() {
+    npm install --quiet --no-progress --prefix ${HOME}/.local/npm --global "${1}"
+}

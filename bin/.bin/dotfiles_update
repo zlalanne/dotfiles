@@ -7,7 +7,7 @@ set -eu
 
 declare -r DOTFILES="${HOME}/.dotfiles"
 
-pushd "${DOTFILES}"
+pushd "${DOTFILES}" &> /dev/null
 git pull origin master
 
 ./bootstrap.sh

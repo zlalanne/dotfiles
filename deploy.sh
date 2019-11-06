@@ -2,23 +2,31 @@
 #
 # Install the correct dotifles needed for this machine
 
-set -eux
+set -eu
 
 declare -r DOTFILES="${HOME}/.dotfiles"
-declare -r STOWFLAGS="--verbose --restow --target ${HOME}"
+declare -r STOWFLAGS="--restow --target ${HOME}"
 
 source ${DOTFILES}/lib/dotfiles.sh
+source ${DOTFILES}/lib/print.sh
 
 check_codename
 
 hostname=$(hostname)
 
+info "Deploying .bin directory"
 stow ${STOWFLAGS} bin
+
+info "Deploying spacemacs config"
 stow ${STOWFLAGS} spacemacs
+
+info "Deploying zsh config"
 stow ${STOWFLAGS} zsh
+
+info "Deploying urxvt config"
 stow ${STOWFLAGS} urxvt
 
-# Host specific files
+info "Deploying git config"
 if at_work; then
     stow ${STOWFLAGS} git-work
 else
