@@ -16,16 +16,17 @@ mkdir -p ${HOME}/Projects
 sudo apt-get update
 sudo apt-get install -y git rsync stow
 
-# Setup virtualenv
+# Setup languages needed for tools
 sudo apt-get install -y python3-venv python3-virtualenv python3-pip virtualenvwrapper
+python3 -m pip install --user pipx
+sudo apt-get install -y golang-go
+sudo apt-get install -y npm
+mkdir -p ${HOME}/.local/npm
 
 # Setup terminal
 sudo apt-get install -y rxvt-unicode
 
-# Get pipx installed
-python3 -m pip install --user pipx
-
-# Install python packages
+# Install python development packages
 pipx install black
 pipx install pylint
 pipx install isort
@@ -38,8 +39,9 @@ sudo apt-get install -y shellcheck
 # Install web/html/css packages
 sudo apt-get install -y node-js-beautify
 
-# Install go
-sudo apt-get install -y golang-go
+# Install markdown packages
+npm install --prefix ${HOME}/.local/npm --global vmd
+sudo apt-get install -y markdown
 
 # Install bazel packages
 go get github.com/bazelbuild/buildtools/buildifier
