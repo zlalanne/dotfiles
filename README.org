@@ -21,6 +21,7 @@
  * [ ] Minimize vimrc to be usable now that I'm on emacs (maybe try to nvim)
  * [ ] Better org-mode settings
  * [ ] Better build/test/run support in Bazel Spacemacs layer
+ * [ ] Bazel Spacemacs layer could use better indention when editing
  * [ ] Add better printing / clean up =deploy.sh= and =bootstrap.sh= scripts to hide stderr
  * [X] Working markdown preview in Spacemacs
  * [X] Move spacemacs layers back to repo? And add them as custom path to .spacemacs?
