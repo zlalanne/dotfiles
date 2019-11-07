@@ -9,6 +9,7 @@ git:
 
 script:
     - ln -s /home/travis/build/zlalanne/dotfiles /home/travis/.dotfiles
+    - rm /home/travis/.zshrc
     - travis_wait ./bootstrap.sh
     - travis_wait ./deploy.sh
     - travis_wait ./bin/.bin/dotfiles_update
