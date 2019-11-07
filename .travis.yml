@@ -8,10 +8,7 @@ git:
   depth: 10
 
 script:
-    - pwd
-    - ls -la
-    - ls -la /home/travis/zlalanne/dotfiles
-    - ln -s /home/travis/zlalanne/dotfiles /home/travis/.dotfiles
+    - ln -s /home/travis/build/zlalanne/dotfiles /home/travis/.dotfiles
     - travis_wait ./bootstrap.sh
     - travis_wait ./deploy.sh
     - travis_wait ./bin/.bin/dotfiles_update
