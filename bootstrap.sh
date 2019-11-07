@@ -6,26 +6,28 @@ set -eu
 
 declare -r DOTFILES="${HOME}/.dotfiles"
 
+# shellcheck source=./lib/dotfiles.sh
 source ${DOTFILES}/lib/dotfiles.sh
+# shellcheck source=./lib/print.sh
 source ${DOTFILES}/lib/print.sh
 
 check_codename
 
 # Setup projects directory
-mkdir -p ${HOME}/Projects
+mkdir -p "${HOME}/Projects"
 
 info "Updating Ubuntu repositories"
 sudo apt-get --quiet update
 
 info "Installing some basic tools"
-dotfiles_apt git rsync stow
+dotfiles_apt git rsync stow silversearcher-ag
 
 info "Installing languages and language package managers"
 dotfiles_apt python3-venv python3-virtualenv python3-pip virtualenvwrapper
 python3 -m pip --quiet install --user pipx
 dotfiles_apt golang-go
 dotfiles_apt npm
-mkdir -p ${HOME}/.local/npm
+mkdir -p "${HOME}/.local/npm"
 
 info "Installing terminal"
 dotfiles_apt rxvt-unicode

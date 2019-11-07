@@ -7,29 +7,29 @@ set -eu
 declare -r DOTFILES="${HOME}/.dotfiles"
 declare -r STOWFLAGS="--restow --target ${HOME}"
 
-source ${DOTFILES}/lib/dotfiles.sh
-source ${DOTFILES}/lib/print.sh
+# shellcheck source=./lib/dotfiles.sh
+source "${DOTFILES}/lib/dotfiles.sh"
+# shellcheck source=./lib/print.sh
+source "${DOTFILES}/lib/print.sh"
 
 check_codename
 
-hostname=$(hostname)
-
 info "Deploying .bin directory"
-stow ${STOWFLAGS} bin
+stow "${STOWFLAGS}" bin
 
 info "Deploying spacemacs config"
-stow ${STOWFLAGS} spacemacs
+stow "${STOWFLAGS}" spacemacs
 
 info "Deploying zsh config"
-stow ${STOWFLAGS} zsh
+stow "${STOWFLAGS}" zsh
 
 info "Deploying urxvt config"
-stow ${STOWFLAGS} urxvt
+stow "${STOWFLAGS}" urxvt
 
 info "Deploying git config"
 if at_work; then
-    stow ${STOWFLAGS} git-work
+    stow "${STOWFLAGS}" git-work
 else
-    stow ${STOWFLAGS} git
+    stow "${STOWFLAGS}" git
 fi
-ln --symbolic --force ${DOTFILES}/git-common/.gitignore ${HOME}/.gitignore
+ln --symbolic --force "${DOTFILES}/git-common/.gitignore" "${HOME}/.gitignore"
