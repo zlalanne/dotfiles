@@ -1,5 +1,3 @@
-[hub]
-        protocol = https
 [user]
         name = Zack Lalanne
         email = zack.lalanne@ti.com
@@ -14,16 +12,17 @@
         preloadindex = true
 [apply]
         whitespace = nowarn
-[mergetool]
-        keepBackup = false
 [difftool]
         prompt = false
 [help]
         autocorrect = 1
+[magit]
+				hideCampaign = true
 [credential]
-	helper = kwallet
-
+				helper = kwallet
 [url "https://github.com/"]
-	insteadOf = git://github.com/
+				insteadOf = git://github.com/
 [merge]
-	guitool = kdiff3
+				guitool = kdiff3
+[mergetool]
+        keepBackup = false

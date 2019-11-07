@@ -1,9 +1,6 @@
-[hub]
-    protocol = https
 [user]
     name = Zack Lalanne
     email = zack.lalanne@gmail.com
-    signingkey = DAC9BAE5
 [color]
     diff = auto
     status = auto
@@ -15,11 +12,13 @@
     preloadindex = true
 [apply]
     whitespace = nowarn
-[mergetool]
-    keepBackup = false
 [difftool]
     prompt = false
 [help]
     autocorrect = 1
 [magit]
     hideCampaign = true
+[merge]
+				guitool = kdiff3
+[mergetool]
+        keepBackup = false
