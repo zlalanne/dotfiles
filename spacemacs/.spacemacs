@@ -501,6 +501,11 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+
+  ;; bashate linter doesn't really work great. Remove it from the list of
+  ;; checkers
+  (setq-default flycheck-disabled-checkers '(bashate))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

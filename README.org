@@ -14,7 +14,7 @@
 
 ** Issues
 
- * [ ] Always use shellcheck checker in shell-script-mode. bashate seems broken at the moment
+ * [X] Always use shellcheck checker in shell-script-mode. bashate seems broken at the moment
  * [ ] Fix xresources issues with KDE Neon
  * [ ] Better symbolic link checking in deploy.sh script
  * [ ] Working travis.ci setup again

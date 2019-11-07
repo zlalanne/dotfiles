@@ -1,5 +1,6 @@
+#!/usr/bin/env bash
 
-declare -r HOSTNAME=$(hostname)
+HOSTNAME=$(hostname)
 
 function check_codename() {
     codename=$(lsb_release --codename | cut -f2)
@@ -11,7 +12,7 @@ function check_codename() {
 
 
 function at_work() {
-    if [[ "${hostname}" == "*0273326" ]]; then
+    if [[ "${HOSTNAME}" == "*0273326" ]]; then
         true
     else
         false
@@ -23,5 +24,5 @@ function dotfiles_apt() {
 }
 
 function dotfiles_npm() {
-    npm install --quiet --no-progress --prefix ${HOME}/.local/npm --global "${1}"
+    npm install --quiet --no-progress --prefix "${HOME}/.local/npm" --global "${1}"
 }
