@@ -31,3 +31,13 @@
  * [ ] Better build/test/run support in Bazel Spacemacs layer
  * [ ] Some python keywords missing from bazel-mode
  * [X] Bazel Spacemacs layer could use better indention when editing
+
+** Post-Install Steps
+
+There are a few steps to run manually after setting up the first time.
+
+#+BEGIN_SRC elisp
+  ;; Run some elisp functions
+  (all-the-icons-install-fonts)
+  (emojify-download-emoji)
+#+END_SRC

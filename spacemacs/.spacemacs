@@ -513,6 +513,9 @@ before packages are loaded."
   ;; Always follow symlinks
   (setq vc-follow-symlinks nil)
 
+  ;; Always enable emojis
+  (add-hook 'after-init-hook #'global-emojify-mode)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
