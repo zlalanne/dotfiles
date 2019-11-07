@@ -1,5 +1,7 @@
 #+TITLE: dotfiles
 
+[[https://travis-ci.org/zlalanne/dotfiles.svg?branch=master]]
+
 ** Description
 
   My collection of dotfiles. My primary development machines right now run KDE
