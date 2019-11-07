@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Starts up a window with our Nursery camera using mpv/RTSP
+
+set -eu
+
+mpv rtsp://192.168.1.2:7447/5c30e1791a322f3646a3c0b5_1 &> /dev/null &
