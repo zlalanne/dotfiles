@@ -22,6 +22,9 @@ sudo apt-get --quiet update
 info "Installing some basic tools"
 dotfiles_apt git rsync stow silversearcher-ag
 
+info "Installing some fonts"
+dotfiles_apt ttf-ancient-fonts fonts-hack
+
 info "Installing languages and language package managers"
 dotfiles_apt python3-venv python3-virtualenv python3-pip virtualenvwrapper
 python3 -m pip --quiet install --user pipx

@@ -45,6 +45,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      (neotree :variables
               neo-theme 'icons)
+     emoji
      ;; Tools
      ansible
      bazel
