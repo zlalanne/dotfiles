@@ -15,10 +15,7 @@
   '(
     (bazel-mode :location (recipe
                            :fetcher github
-                           :repo bazelbuild/emacs-bazel-mode))
-    (bazel-build :location (recipe
-                           :fetcher github
-                           :repo bazelbuild/emacs-bazel-mode))
+                           :repo zlalanne/bazel-mode))
     )
   "The list of Lisp packages required by the bazel layer.")
 
@@ -31,18 +28,9 @@
            ("WORKSPACE\\'"     . bazel-mode))
     :config
     (spacemacs/set-leader-keys-for-major-mode 'bazel-mode
-      "=" 'bazel-mode-buildifier
+      "=" 'bazel-format
     )
   )
-)
-
-(defun bazel/init-bazel-build ()
-  (use-package bazel-build
-    :config
-    (spacemacs/set-leader-keys-for-major-mode 'bazel-mode
-      "b" 'bazel-build
-      "r" 'bazel-run
-      "t" 'bazel-test))
 )
 
 ;;; packages.el ends here
