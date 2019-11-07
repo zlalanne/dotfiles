@@ -43,7 +43,6 @@ This function should only modify configuration layer settings."
      better-defaults
      spell-checking
      syntax-checking
-     multiple-cursors
      (neotree :variables
               neo-theme 'icons)
      ;; Tools
@@ -505,6 +504,13 @@ before packages are loaded."
   ;; bashate linter doesn't really work great. Remove it from the list of
   ;; checkers
   (setq-default flycheck-disabled-checkers '(bashate))
+
+  ;; Show trailing whitespace
+  (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
+  (set-face-background 'trailing-whitespace "#cb4b16")
+
+  ;; Always follow symlinks
+  (setq vc-follow-symlinks nil)
 
   )
 
