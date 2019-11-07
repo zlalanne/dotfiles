@@ -1,6 +1,6 @@
 #+TITLE: dotfiles
 
-[[https://travis-ci.org/zlalanne/dotfiles.svg?branch=master]]
+[[https://travis-ci.org/zlalanne/dotfiles][https://travis-ci.org/zlalanne/dotfiles.svg?branch=master]]
 
 ** Description
 
