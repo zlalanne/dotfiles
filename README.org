@@ -19,7 +19,7 @@
  * [X] Always use shellcheck checker in shell-script-mode. bashate seems broken at the moment
  * [ ] Fix xresources issues with KDE Neon
  * [X] Better symbolic link checking in deploy.sh script
- * [ ] Working travis.ci setup again
+ * [X] Working travis.ci setup again
  * [ ] Minimize vimrc to be usable now that I'm on emacs (maybe try to nvim)
  * [ ] Better org-mode settings
  * [ ] Better build/test/run support in Bazel Spacemacs layer
