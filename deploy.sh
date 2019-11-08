@@ -26,6 +26,9 @@ stow "${STOWFLAGS[@]}" zsh
 info "Deploying urxvt config"
 stow "${STOWFLAGS[@]}" urxvt
 
+info "Deploying aspell dictionary"
+stow "${STOWFLAGS[@]}" aspell
+
 info "Deploying git config"
 if at_work; then
     stow "${STOWFLAGS[@]}" git-work
