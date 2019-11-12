@@ -516,7 +516,7 @@ before packages are loaded."
   (setq vc-follow-symlinks nil)
 
   ;; Always enable emojis
-  (add-hook 'after-init-hook #'global-emojify-mode)
+  (global-emojify-mode)
 
   )
 
