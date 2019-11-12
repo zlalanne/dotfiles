@@ -27,6 +27,7 @@
  * [X] Move spacemacs layers back to repo? And add them as custom path to .spacemacs?
  * [ ] Spacemacs recentf issue [[https://github.com/syl20bnr/spacemacs/issues/5186]]
  * [X] Add some spacemcas/emacs CI checks
+ * [ ] Emoji's not always working with magit buffers
 
 *** Bazel Spacemacs Layer
 
