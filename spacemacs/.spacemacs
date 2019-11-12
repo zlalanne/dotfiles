@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
      ;; Tools
      ansible
      bazel
+     cmake
      docker
      git
      lsp
@@ -80,6 +81,7 @@ This function should only modify configuration layer settings."
      rust
      shell-scripts
      vimscript
+     window-scripts
      yaml
      )
 
