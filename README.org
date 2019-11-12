@@ -17,7 +17,6 @@
 ** Issues
 
  * [ ] Better org-mode settings
- * [ ] Emoji's not always working with magit buffers
  * [ ] Fix xresources issues with KDE Neon
  * [ ] Minimize vimrc to be usable now that I'm on emacs (maybe try to nvim)
  * [ ] Spacemacs recentf issue [[https://github.com/syl20bnr/spacemacs/issues/5186]]
@@ -25,6 +24,7 @@
  * [X] Add some spacemcas/emacs CI checks
  * [X] Always use shellcheck checker in shell-script-mode. bashate seems broken at the moment
  * [X] Better symbolic link checking in deploy.sh script
+ * [X] Emoji's not always working with magit buffers
  * [X] Move spacemacs layers back to repo? And add them as custom path to .spacemacs?
  * [X] Working markdown preview in Spacemacs
  * [X] Working travis.ci setup again
