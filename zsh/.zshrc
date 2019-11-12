@@ -25,6 +25,3 @@ do
     source $file
 done
 unset config_files
-
-# User configuration
-export EDITOR='vim'
