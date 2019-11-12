@@ -81,7 +81,7 @@ This function should only modify configuration layer settings."
      rust
      shell-scripts
      vimscript
-     window-scripts
+     windows-scripts
      yaml
      )
 
