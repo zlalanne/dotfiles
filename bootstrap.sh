@@ -20,7 +20,7 @@ info "Updating Ubuntu repositories"
 sudo apt-get --quiet update
 
 info "Installing some basic tools"
-dotfiles_apt git rsync stow silversearcher-ag aspell
+dotfiles_apt git rsync stow silversearcher-ag aspell libnotify-bin
 
 info "Installing some fonts"
 dotfiles_apt ttf-ancient-fonts fonts-hack

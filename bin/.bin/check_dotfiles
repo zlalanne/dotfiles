@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# Compares the checked out version of my dotfiles against the remote version.
+# Send me a desktop notification if they are out of date to remind me to keep
+# them in sync.
+
+set -eu
+
+declare -r GIT_URL="https://github.com/zlalanne/dotfiles.git"
+
+remote_hash=$(git ls-remote ${GIT_URL} HEAD | cut -f1)
+local_hash=$(git ls-remote "${HOME}/.dotfiles" HEAD | head -n1 | cut -f1)
+
+if [[ "$remote_hash" != "$local_hash" ]]; then
+    notify-send --expire-time=0 --urgency=low "Dotfiles" "Dotfiles are out of date"
+fi

@@ -44,3 +44,10 @@ There are a few steps to run manually after setting up the first time.
   (all-the-icons-install-fonts)
   (emojify-download-emoji)
 #+END_SRC
+
+Add a cronjob to check that the dotfiles are in sync
+
+#+BEGIN_SRC
+  # Every 4 hours check if dotfiles are in a good state
+  0 */4  *   *   *     /home/zack/.bin/check_dotfiles
+#+END_SRC
