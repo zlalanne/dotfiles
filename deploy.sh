@@ -14,6 +14,9 @@ source "${DOTFILES}/lib/print.sh"
 
 check_codename
 
+info "Installing git hooks"
+pre-commit install &> /dev/null
+
 info "Deploying .bin directory"
 stow "${STOWFLAGS[@]}" bin
 

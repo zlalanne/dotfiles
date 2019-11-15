@@ -24,9 +24,9 @@
  * [ ] Trailing whitespace color not showing up correctly
  * [ ] Projectile doesn't always seem to pull up new projects
  * [ ] Add keybinding to edit this file
- * [ ] Add pre-commit to this repo
  * [ ] Figure out using pylint and lsp mode together?
  * [X] Add better printing / clean up =deploy.sh= and =bootstrap.sh= scripts to hide stderr
+ * [X] Add pre-commit to this repo
  * [X] Add some spacemcas/emacs CI checks
  * [X] Always use shellcheck checker in shell-script-mode. bashate seems broken at the moment
  * [X] Better symbolic link checking in deploy.sh script
