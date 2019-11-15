@@ -35,6 +35,9 @@ mkdir -p "${HOME}/.local/npm"
 info "Installing terminal"
 dotfiles_apt rxvt-unicode
 
+info "Installing some generic development packages"
+pipx install pre-commit
+
 info "Installing python development packages"
 pipx install black
 pipx install pylint
