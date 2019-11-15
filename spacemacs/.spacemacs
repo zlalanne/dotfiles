@@ -509,6 +509,9 @@ before packages are loaded."
   ;; that gets picked up automatically
   (setq-default flycheck-disabled-checkers '(bashate yaml-jsyaml yaml-ruby))
 
+  ;; Setup pylint correctly. Point to the version installed using pipx
+  (setq-default flycheck-python-pylint-executable "~/.local/bin/pylint")
+
   ;; Show trailing whitespace
   (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
   (set-face-background 'trailing-whitespace "#cb4b16")

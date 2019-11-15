@@ -43,6 +43,8 @@ pipx install black
 pipx install pylint
 pipx install isort
 pipx install pyls
+python3 -m pip install --user importmagic
+python3 -m pip install --user epc
 
 info "Installing shell-scripting packages"
 pipx install bashate
