@@ -522,6 +522,15 @@ before packages are loaded."
   ;; Always enable emojis
   (global-emojify-mode)
 
+  ;; Custom function/keybinding to edit my dotfiles README.org file
+  (defun zl/find-dotfiles-readme ()
+    "Edit my dotfiles `README.org', in the current window."
+    (interactive)
+    (find-file-existing "~/.dotfiles/README.org"))
+  (spacemacs/set-leader-keys
+    "fep" 'zl/find-dotfiles-readme
+    )
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
