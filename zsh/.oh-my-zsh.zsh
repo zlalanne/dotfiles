@@ -45,4 +45,3 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(colored-man-pages colorize cp extract history rsync git jsontools vagrant docker docker-compose emacs)
 
 source $ZSH/oh-my-zsh.sh
-

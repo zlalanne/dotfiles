@@ -12,8 +12,9 @@ def echo(msg):
 
 
 def out(n):
-    os.system("tput setab " + str(n) + "; echo -n " + ("\"% 4d\"" % n))
+    os.system("tput setab " + str(n) + "; echo -n " + ('"% 4d"' % n))
     os.system("tput setab 0")
+
 
 # normal colors 1 - 16
 os.system("tput setaf 16")

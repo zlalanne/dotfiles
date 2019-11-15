@@ -7,11 +7,11 @@
   My collection of dotfiles. My primary development machines right now run KDE
   Neon which is based on Ubuntu 18.04. So the =bootstrap.sh= and =deploy.sh=
   scripts have some dependencies on debian/Ubuntu.
-  
+
   Package installation is done in =boostrap.sh=, mostly used to setup tools
   needed for developing code. The =deploy.sh= script handles symlinking all the
   dotfiles to their correct destinations.
-  
+
   My main editor is Emacs using [[http://spacemacs.org/][Spacemacs]]. My main shell is zsh using [[https://ohmyz.sh/][Oh-My-Zsh]].
 
 ** Issues
