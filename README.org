@@ -22,6 +22,7 @@
  * [ ] Spacemacs recentf issue [[https://github.com/syl20bnr/spacemacs/issues/5186]]
  * [ ] Spacemacs/gitgutter tramp mode issue https://github.com/nonsequitur/git-gutter-plus/issues/42#issuecomment-463735372
  * [ ] Trailing whitespace color not showing up correctly
+ * [ ] Projectile doesn't always seem to pull up new projects
  * [X] Add better printing / clean up =deploy.sh= and =bootstrap.sh= scripts to hide stderr
  * [X] Add some spacemcas/emacs CI checks
  * [X] Always use shellcheck checker in shell-script-mode. bashate seems broken at the moment
