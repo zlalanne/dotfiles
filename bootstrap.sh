@@ -26,7 +26,7 @@ info "Installing some fonts"
 dotfiles_apt ttf-ancient-fonts fonts-hack
 
 info "Installing languages and language package managers"
-dotfiles_apt python3-venv python3-virtualenv python3-pip virtualenvwrapper
+dotfiles_apt python3-venv python3-virtualenv python3-pip python3-setuptools virtualenvwrapper
 python3 -m pip --quiet install --user pipx
 dotfiles_apt golang-go
 dotfiles_apt npm
