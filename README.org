@@ -20,6 +20,7 @@
  * [ ] Fix xresources issues with KDE Neon
  * [ ] Minimize vimrc to be usable now that I'm on emacs (maybe try to nvim)
  * [ ] Spacemacs recentf issue [[https://github.com/syl20bnr/spacemacs/issues/5186]]
+ * [ ] Spacemacs/gitgutter tramp mode issue https://github.com/nonsequitur/git-gutter-plus/issues/42#issuecomment-463735372
  * [X] Add better printing / clean up =deploy.sh= and =bootstrap.sh= scripts to hide stderr
  * [X] Add some spacemcas/emacs CI checks
  * [X] Always use shellcheck checker in shell-script-mode. bashate seems broken at the moment
