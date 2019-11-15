@@ -45,6 +45,9 @@ info "Installing shell-scripting packages"
 pipx install bashate
 dotfiles_apt shellcheck
 
+info "Installing YAML packages"
+pipx yamllint
+
 info "Installing web development packages"
 dotfiles_apt node-js-beautify
 

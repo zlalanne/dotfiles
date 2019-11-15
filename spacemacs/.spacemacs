@@ -504,9 +504,10 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
-  ;; bashate linter doesn't really work great. Remove it from the list of
-  ;; checkers
-  (setq-default flycheck-disabled-checkers '(bashate))
+  ;; bashate linter doesn't really work great, disable it.
+  ;; I prefer the yaml-yamllint checker, so disable the other yaml checkers so
+  ;; that gets picked up automatically
+  (setq-default flycheck-disabled-checkers '(bashate yaml-jsyaml yaml-ruby))
 
   ;; Show trailing whitespace
   (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
