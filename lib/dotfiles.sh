@@ -12,7 +12,7 @@ function check_codename() {
 
 
 function at_work() {
-    if [[ "${HOSTNAME}" == "*0273326" ]]; then
+    if [[ "${HOSTNAME}" == *"0273326" ]]; then
         true
     else
         false
