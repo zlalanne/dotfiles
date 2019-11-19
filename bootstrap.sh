@@ -29,6 +29,7 @@ info "Installing languages and language package managers"
 dotfiles_apt python3-venv python3-virtualenv python3-pip python3-setuptools virtualenvwrapper
 python3 -m pip --quiet install --user pipx
 dotfiles_apt golang-go
+dotfiles_apt nodejs-dev node-gyp libssl1.0-dev
 dotfiles_apt npm
 mkdir -p "${HOME}/.local/npm"
 
