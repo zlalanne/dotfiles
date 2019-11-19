@@ -56,6 +56,13 @@ There are a few steps to run manually after setting up the first time.
 Add a cronjob to check that the dotfiles are in sync
 
 #+BEGIN_SRC
-  # Every 4 hours check if dotfiles are in a good state
+  # every 4 hours check if dotfiles are in a good state
   0 */4  *   *   *     /home/zack/.bin/check_dotfiles
+#+END_SRC
+
+Add a cronjob to keep my local elpa mirror up to date
+
+#+BEGIN_SRC
+  # Update elpa mirror at 6:00 AM every day
+  6  *   *   *   *     /home/zack/.bin/elpa_update
 #+END_SRC

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Updates my local elpa mirror
+
+set -eu
+
+cd /mnt/data/elpa-mirror
+
+git fetch --all
+git reset --hard origin/master
+
+date > /tmp/elpa_update.log
