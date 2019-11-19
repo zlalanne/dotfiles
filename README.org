@@ -25,6 +25,7 @@
  * [ ] Projectile doesn't always seem to pull up new projects
  * [ ] Figure out using pylint and lsp mode together?
  * [ ] Add KDE avatar
+ * [ ] Setup KDE Wallet to handle git HTTPS credentials
  * [X] Add better printing / clean up =deploy.sh= and =bootstrap.sh= scripts to hide stderr
  * [X] Add keybinding to edit this file
  * [X] Add pre-commit to this repo
