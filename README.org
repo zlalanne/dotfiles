@@ -40,6 +40,7 @@
 
  * [ ] Better build/test/run support in Bazel Spacemacs layer
  * [ ] Some python keywords missing from bazel-mode
+ * [ ] Too many python things running during Bazel-mode
  * [X] Bazel Spacemacs layer could use better indention when editing
 
 ** Post-Install Steps
