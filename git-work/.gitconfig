@@ -1,28 +1,30 @@
 [user]
-        name = Zack Lalanne
-        email = zack.lalanne@ti.com
+	name = Zack Lalanne
+	email = zack.lalanne@ti.com
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
-        preloadindex = true
+	excludesfile = ~/.gitignore
+	editor = vim
+	preloadindex = true
 [apply]
-        whitespace = nowarn
+	whitespace = nowarn
 [difftool]
-        prompt = false
+	prompt = false
 [help]
-        autocorrect = 1
+	autocorrect = 1
 [magit]
-				hideCampaign = true
+	hideCampaign = true
 [credential]
-				helper = kwallet
+	helper = store
+[credential "https://github.com"]
+	username = zlalanne
 [url "https://github.com/"]
-				insteadOf = git://github.com/
+	insteadOf = git://github.com/
 [merge]
-				guitool = kdiff3
+	guitool = kdiff3
 [mergetool]
-        keepBackup = false
+	keepBackup = false
