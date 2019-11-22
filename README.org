@@ -39,8 +39,9 @@
 *** Bazel Spacemacs Layer
 
  * [ ] Better build/test/run support in Bazel Spacemacs layer
- * [ ] Some python keywords missing from bazel-mode
  * [ ] Too many python things running during Bazel-mode
+ * [ ] Add auto buildifier run on save
+ * [X] Some python keywords missing from bazel-mode
  * [X] Bazel Spacemacs layer could use better indention when editing
 
 ** Post-Install Steps
