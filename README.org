@@ -26,6 +26,7 @@
  * [ ] Figure out using pylint and lsp mode together?
  * [ ] Add KDE avatar
  * [ ] Fix emojis (proxy issue at work?)
+ * [ ] yamllint throwing errors. Problem with version installed?
  * [X] Add better printing / clean up =deploy.sh= and =bootstrap.sh= scripts to hide stderr
  * [X] Add keybinding to edit this file
  * [X] Add pre-commit to this repo
