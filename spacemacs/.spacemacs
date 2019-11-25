@@ -515,7 +515,7 @@ before packages are loaded."
   (setq vc-follow-symlinks nil)
 
   ;; Always enable emojis
-  (global-emojify-mode)
+  ;;(global-emojify-mode)
 
   ;; Custom function/keybinding to edit my dotfiles README.org file
   (defun zl/find-dotfiles-readme ()
