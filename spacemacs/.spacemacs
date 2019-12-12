@@ -45,6 +45,9 @@ This function should only modify configuration layer settings."
      bazel
      cmake
      docker
+     (elfeed :variables
+             rmh-elfeed-org-files (list "~/.rss.org")
+             elfeed-enable-web-interface t)
      git
      lsp
      nginx
@@ -71,6 +74,7 @@ This function should only modify configuration layer settings."
              python-backend 'lsp
              python-lsp-server 'pyls
              python-formatter 'black
+             python-format-on-save nil
              python-sort-imports-on-save t)
      ruby
      rust
@@ -499,6 +503,12 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; Customize elfeed colors
+  (set-face-foreground 'elfeed-search-date-face "#586e75")
+  (set-face-foreground 'elfeed-search-feed-face "#586e75")
+  (set-face-foreground 'elfeed-search-tag-face "#839496")
+  (set-face-foreground 'elfeed-search-title-face "#2aa198")
+
   ;; bashate linter doesn't really work great, disable it.
   ;; I prefer the yaml-yamllint checker, so disable the other yaml checkers so
   ;; that gets picked up automatically
@@ -548,5 +558,5 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((((class color) (min-colors 89)) (:foreground "#839496" :background "#002b36")))))
 )
