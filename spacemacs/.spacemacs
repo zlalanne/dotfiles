@@ -34,6 +34,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(helm
      auto-completion
+     helpful
      better-defaults
      spell-checking
      syntax-checking
@@ -76,6 +77,9 @@ This function should only modify configuration layer settings."
              python-formatter 'black
              python-format-on-save nil
              python-sort-imports-on-save t)
+     (org :variables
+          org-enable-bootstrap-support t
+          org-eanble-reveal-js-support t)
      ruby
      rust
      shell-scripts
@@ -526,6 +530,11 @@ before packages are loaded."
 
   ;; Always enable emojis
   ;;(global-emojify-mode)
+
+  ;; org mode customization
+  (with-eval-after-load 'org
+    ;; org config goes here
+    )
 
   ;; Custom function/keybinding to edit my dotfiles README.org file
   (defun zl/find-dotfiles-readme ()
