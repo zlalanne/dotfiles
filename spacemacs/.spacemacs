@@ -32,8 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(go
-     helm
+   '(helm
      auto-completion
      helpful
      better-defaults
@@ -61,7 +60,9 @@ This function should only modify configuration layer settings."
      ;; Programming/Markup Languages
      csv
      emacs-lisp
+     go
      graphviz
+     groovy
      (html :variables
            web-fmt-tool 'web-beautify)
      (javascript :variables
