@@ -8,6 +8,12 @@ import sys
 
 def main():
 
+    if sys.argv[1] == "--small":
+        dimension = "2000"
+        del sys.argv[1]
+    else:
+        dimension = "3000"
+
     for filename in sys.argv[1:]:
         xml_out = subprocess.check_output(["mediainfo", "--Output=XML", filename])
         root = ET.fromstring(xml_out)
@@ -24,11 +30,23 @@ def main():
 
                 if width > height:
                     subprocess.call(
-                        ["convert", orig_file, "-resize", "3000x", filename]
+                        [
+                            "convert",
+                            orig_file,
+                            "-resize",
+                            "{}x".format(dimension),
+                            filename,
+                        ]
                     )
                 else:
                     subprocess.call(
-                        ["convert", orig_file, "-resize", "x3000", filename]
+                        [
+                            "convert",
+                            orig_file,
+                            "-resize",
+                            "x{}".format(dimension),
+                            filename,
+                        ]
                     )
 
 
