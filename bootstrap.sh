@@ -16,6 +16,10 @@ check_codename
 # Setup projects directory
 mkdir -p "${HOME}/Projects"
 
+# Setup zsh completion directory
+mkdir -p "${HOME}/.zsh/completion"
+mkdir -p "${HOME}/.zsh/cache"
+
 info "Updating Ubuntu repositories"
 sudo apt-get --quiet update
 
