@@ -14,11 +14,6 @@ then
     source $HOME/.localrc
 fi
 
-# Load custom autocompletions
-fpath[1,0]=$HOME/.zsh/completion/
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path $HOME/.zsh/cache
-
 # Load oh-my-zsh
 source $HOME/.oh-my-zsh.zsh
 
@@ -30,3 +25,9 @@ do
     source $file
 done
 unset config_files
+
+# Load custom autocompletions
+fpath[1,0]=$HOME/.zsh/completion/
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path $HOME/.zsh/cache
+compinit
